@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+Goal: Simulate a column layout using FlexBox
+
++- - -viewport - - -+
+|+- - -+- - -+- - -+|
+|| BOX | BOX | BOX ||
+|+- - -+- - -+- - -+|
++- - - - - - - - - -+
+ +- - -+- - -+
+ | BOX | BOX |
+ +- - -+- - -+
+
+SubGoals:
+1. Create a FlexBox container with 9 children
+2. Flex children should be at most as tall as the viewport
+3. Flex children should have a starting width of 350px (including 25px of padding)
+4. Flex children should grow to fill extra space
+5. Flex children should not shrink below 350px
+6. At sizes < 700px wide, flex children should be centered and have a fixed width of 350px
+-->
+<style>
+/*********
+ * WORK HERE
+ *********/
+.flexbox {
+    
+}
+.flexbox > * {
+        
+}
+@media screen {
+
+}
+/* Presentation Markup */
+html, body { width: 100%; height: 100%; margin: 0; }
+.flexbox > * {
+    box-sizing: border-box;
+    line-height: 1.2;
+    counter-increment: box-num;
+}
+.flexbox > *:before {
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 2px solid white;
+    background-color: #4c70a3;
+    color: white;
+    font-size: 200px;
+    content: counter(box-num);
+}
+</style>
+<link rel='stylesheet' href='../resources/font.css' type='text/css' />
+<body>
+<div class='flexbox'>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+</body>
+<html>

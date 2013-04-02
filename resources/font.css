@@ -1,0 +1,7 @@
+@font-face {
+  src: url('JosefinSlab-Regular.ttf');
+  font-family: 'Josefin Slab';
+}
+body {
+    font-family: 'Josefin Slab', serif;
+}

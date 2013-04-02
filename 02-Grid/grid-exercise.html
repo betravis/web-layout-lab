@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+Goal: Create a two column grid layout with an inset
+
+Layout 1
++ - - - - - - - - +
+| COLUMN | COLUMN |
+|   +- - - - -+   |
+|   |  INSET  |   |
+|   +- - - - -+   |
+| ONE    |    TWO |
++ - - - - - - - - +
+
+Layout 2
++ - - - - +
+| ROW ONE |
++ - - - - +
+|  INSET  |
++ - - - - +
+| ROW TWO |
++ - - - - +
+
+Subgoals:
+1. Create Layout 1
+2. With an inset area spanning
+    a. [25%, 75%] in the x direction
+    b. [33%, 67%] in the y direction
+3. At widths < 600px, switch to Layout 2
+    a. Row 1 [0, 33%] in the y direction
+    b. Inset [33%, 67%] in the y direction
+    c. Row 2 [67%, - ] in the y direction
+-->
+<html>
+<head>
+<style>
+/*********
+ * WORK HERE
+ *********/
+.grid {
+
+}
+.one, .two {
+
+}
+.one {
+
+}
+.two {
+
+}
+/* Presentation Markup */
+.grid > * {
+    border: 2px solid white;
+    box-sizing: border-box;
+    font-size: 200px;
+    line-height: 1.2;
+}
+.one, .two {
+    background-color: #91c46c;
+    color: white;
+}
+.inset {
+    background-color: white;
+    color: #91c46c;
+}
+</style>
+<link rel='stylesheet' type='text/css' href='../resources/font.css' />
+</head>
+<body>
+<div class='grid'>
+    <div class='one'>1</div>
+    <div class='two'>2</div>
+    <div class='inset'>inset</div>
+</div>
+</div>
+</body>
+</html>
