@@ -1,40 +1,38 @@
 <!DOCTYPE html>
 <!--
-Goal: Flow the Alice in Wonderland content through areas one and two
+Goal: Wrap content around the inset using a shape-inside
 
 Layout 1
 + - - - - - - - - +
-| A      |      C |
+| A L I  |  W O N |
 |   +- - - - -+   |
-| L |  INSET  | E |
+| C |  INSET  | D |
 |   +- - - - -+   |
-| I      |        |
+| E I N  |  E R L |
 + - - - - - - - - +
 
-Layout 2
-+ - - - - +
-| A  L  I |
-+ - - - - +
-|  INSET  |
-+ - - - - +
-| C  E    |
-+ - - - - +
-
 Subgoals:
-1. Flow content into a named flow
-2. Have the grid areas pull from your named flow
+1. Apply shape-insides
+2. Use media queries to apply them only to Layout 1
 -->
 <html>
 <head>
 <style>
-/*********
- * WORK HERE
- *********/
+/* Shape Markup */
+ @media screen and (min-width: 600px) {
+    .one {
+        -webkit-shape-inside: polygon(0 0, 100% 0, 100% 33%, 50% 33%, 50% 67%, 100% 67%, 100% 100%, 0 100%);
+     }
+     .two {
+        -webkit-shape-inside: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 67%, 50% 67%, 50% 33%, 0% 33%);
+     } 
+ }
+ /* Regions Markup */
  .one, .two {
-
+    -webkit-flow-from: story-flow;
  }
  .content {
-
+    -webkit-flow-into: story-flow;
  }
  /* Grid Markup */
 .grid {

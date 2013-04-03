@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+Goal: Use a template to create a comment component
+
+SubGoals:
+1. Create a shadow root for the content
+2. Copy the template content into the shadow DOM
+-->
+<script>
+window.onload = function() {
+/*********
+ * WORK HERE
+ *********/
+    var template = document.querySelector('template');
+    var shadow = document.querySelector('.bob').webkitCreateShadowRoot();
+    shadow.appendChild(template.content);
+    template.remove();
+}
+</script>
+<style>
+.bob:before {
+    /*border: 2px solid green;
+    content: attr(data-name);*/
+}
+</style>
+<link rel='stylesheet' href='../resources/font.css' type='text/css' />
+<body>
+    <div class='bob' data-name='bob'></div>
+    <template>
+        <style>
+            *:before {
+                content: attr(data-name);
+            }
+        </style>
+        <content></content>
+    </template>
+</body>
+<html>

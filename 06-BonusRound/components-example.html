@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- adapted from http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/ -->
+<html>
+<link rel='stylesheet' type='text/css' href='../resources/font.css' />
+<script src='../resources/feature-detect.js'></script>
+<script>
+window.onload = function() {
+    var template = document.getElementById('nameTemplate');
+    var shadow = document.getElementById('name').webkitCreateShadowRoot();
+    shadow.appendChild(template.content);
+    template.remove();
+}
+</script>
+<body>
+<div id='name'>Alice</div>
+<template id='nameTemplate'>
+    <style>
+    .container {
+        border-radius: 1em;
+        height: 7em;
+        width: 12em;
+        background-color: #4c70a3;
+        color: white;
+        line-height: 1.2;
+    }
+    .container > * {
+        padding: .5em;
+        box-sizing: border-box;
+    }
+    .salutation {
+        font-size: 1.2em;
+    }
+    .content {
+        font-size: 1.5em;
+        color: #4c70a3;
+        background-color: white;
+    }
+    </style>
+    <div class='container'>
+        <div class='salutation'>Hi! My name is</div>
+        <div class='content'>
+            <content></content>
+        </div>
+    </div>
+</template>
+</body>
+</html>

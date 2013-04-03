@@ -28,7 +28,7 @@ Subgoals:
 3. At widths < 600px, switch to Layout 2
     a. Row 1 [0, 33%] in the y direction
     b. Inset [33%, 67%] in the y direction
-    c. Row 2 [67%, - ] in the y direction
+    c. Row 2 [67%, - ] in the y direction (with auto height)
 -->
 <html>
 <head>
@@ -48,30 +48,45 @@ Subgoals:
 .two {
 
 }
+.inset {
+
+}
+@media screen {
+
+}
 /* Presentation Markup */
+html, body { width: 100%; height: 100%; margin: 0;}
 .grid > * {
-    border: 2px solid white;
     box-sizing: border-box;
+}
+div > *:before {
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 2px solid white;
     font-size: 200px;
     line-height: 1.2;
 }
-.one, .two {
+.one, .two { counter-increment: box-counter; }
+.one:before, .two:before {
     background-color: #91c46c;
     color: white;
+    content: counter(box-counter);
 }
-.inset {
+.inset:before {
     background-color: white;
     color: #91c46c;
+    content: 'inset';
 }
 </style>
 <link rel='stylesheet' type='text/css' href='../resources/font.css' />
 </head>
 <body>
 <div class='grid'>
-    <div class='one'>1</div>
-    <div class='two'>2</div>
-    <div class='inset'>inset</div>
-</div>
+    <div class='one'></div>
+    <div class='two'></div>
+    <div class='inset'></div>
 </div>
 </body>
 </html>

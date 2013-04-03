@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <!--
-Goal: Flow the Alice in Wonderland content through the FlexBox Exercise Template
+Goal: Wrap content to fit the contours of the 'A'
 
-+- - -viewport - - -+
-|+- - -+- - -+- - -+|
-||  A  |  L  |  I  ||
-|+- - -+- - -+- - -+|
-+- - - - - - - - - -+
- +- - -+- - -+
- |  C  |  E  |
- +- - -+- - -+
+     ___
+    / _ \  L
+   / / \ \  I
+  /  - -  \  C
+ / /     \ \  E
+- -       - - 
 
 SubGoals:
-1. Put the content into a named flow (eg 'story-flow')
-2. Flow the content from your named flow through the template boxes
+1. Generate a shape using the shape tool
+2. Apply the shape to the first letter
 -->
 <style>
 /*********
  * WORK HERE
  *********/
+.content:first-letter {
+    
+}
+ /* Regions Markup */
 .flexbox > * {
-
+    -webkit-flow-from: story-flow;
 }
 .content {
-
+    -webkit-flow-into: story-flow;
 }
  /* FlexBox Markup */
  .flexbox > *:first-child {
