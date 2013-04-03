@@ -1,0 +1,46 @@
+/* Grid Markup */
+.grid {
+    display: -webkit-grid;
+    -webkit-grid-columns: 25% 25% 25% 25%;
+    -webkit-grid-rows: 33% 34% 33%;
+    width: 100%;
+    height: 100%;
+}
+.one, .two {
+    -webkit-grid-before: 1;
+    -webkit-grid-after: 1;
+}
+.one {
+    -webkit-grid-start: 1;
+    -webkit-grid-end: 3;
+}
+.two {
+    -webkit-grid-start: 3;
+    -webkit-grid-end: 1;
+}
+.inset {
+    -webkit-grid-before: 2;
+    -webkit-grid-after: 2;
+    -webkit-grid-start: 2;
+    -webkit-grid-end: 2;
+}
+@media screen and (max-width: 600px) {
+    .one {
+        -webkit-grid-before: 1;
+        -webkit-grid-after: 3;
+        -webkit-grid-start: 1;
+        -webkit-grid-end: 1;
+    }
+    .two {
+        -webkit-grid-before: 3;
+        -webkit-grid-after: 1;
+        -webkit-grid-start: 1;
+        height: auto;
+    }
+    .inset {
+        -webkit-grid-before: 2;
+        -webkit-grid-after: 2;
+        -webkit-grid-start: 1;
+        -webkit-grid-end: 1;
+    }
+}

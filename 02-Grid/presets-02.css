@@ -1,0 +1,25 @@
+html, body { width: 100%; height: 100%; margin: 0;}
+.grid > * {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+div > *:before {
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 2px solid white;
+    font-size: 200px;
+    line-height: 1.2;
+}
+.one, .two { counter-increment: box-counter; }
+.one:before, .two:before {
+    background-color: #91c46c;
+    color: white;
+    content: counter(box-counter);
+}
+.inset {
+    background: white url('../resources/cheshire.svg') no-repeat center;
+    background-size: 100%;
+}

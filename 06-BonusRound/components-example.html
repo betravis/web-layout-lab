@@ -7,7 +7,7 @@
 window.onload = function() {
     var template = document.getElementById('nameTemplate');
     var shadow = document.getElementById('name').webkitCreateShadowRoot();
-    shadow.appendChild(template.content);
+    shadow.appendChild(template.content.cloneNode(true));
     template.remove();
 }
 </script>

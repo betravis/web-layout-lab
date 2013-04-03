@@ -54,32 +54,20 @@ Subgoals:
 @media screen {
 
 }
-/* Presentation Markup */
-html, body { width: 100%; height: 100%; margin: 0;}
+/* debugging css */
+.grid {
+    background: url('../resources/box.svg') repeat top left;
+    background-size: 25% 33.33%;
+}
 .grid > * {
-    box-sizing: border-box;
-}
-div > *:before {
-    display: block;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    border: 2px solid white;
-    font-size: 200px;
-    line-height: 1.2;
-}
-.one, .two { counter-increment: box-counter; }
-.one:before, .two:before {
-    background-color: #91c46c;
-    color: white;
-    content: counter(box-counter);
+    -webkit-opacity: 0.2;
 }
 .inset:before {
-    background-color: white;
     color: #91c46c;
-    content: 'inset';
+    content: '<img>';
 }
 </style>
+<link rel='stylesheet' type='text/css' href='../02-Grid/presets-02.css' />
 <link rel='stylesheet' type='text/css' href='../resources/font.css' />
 </head>
 <body>

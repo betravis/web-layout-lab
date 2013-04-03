@@ -13,64 +13,10 @@ SubGoals:
 1. Generate a shape using the shape tool
 2. Apply the shape to the first letter
 -->
-<style>
-/* Shape Markup */
-.content:first-letter {
-    -webkit-shape-inside: polygon(0 0, 100% 100%, 0 100%);
-}
- /* Regions Markup */
-.flexbox > * {
-    -webkit-flow-from: story-flow;
-}
-.content {
-    -webkit-flow-into: story-flow;
-}
- /* FlexBox Markup */
- .flexbox > *:first-child {
-    border: 25px solid transparent;
- }
-@media screen and (min-width: 700px) {
-    .flexbox {
-        display: -webkit-flex;
-        -webkit-flex-wrap: wrap;
-        height: 100%;
-        max-height: 100%;
-    }
-    .flexbox > * {
-        -webkit-flex-grow: 1;
-        -webkit-flex-shrink: 0;
-        width: 350px;
-        border: 25px solid transparent;
-        height: 100%;
-        overflow: hidden;
-    }
-}
-/* Presentation Markup */
-.content:first-letter {
-    display: block;
-    float: left;
-    width: 240px;
-    height: 280px;
-    font-size: 280px;
-}
-html, body { width: 100%; height: 100%; margin: 0; }
-.flexbox > * {
-    box-sizing: border-box;
-    line-height: 1.2;
-    counter-increment: box-num;
-}
-.flexbox > *:before {
-    display: block;
-    width: 100%;
-    height: 2000px;
-    border: 2px solid white;
-    box-sizing: border-box;
-    background-color: #4c70a3;
-    color: white;
-    font-size: 200px;
-    content: counter(box-num);
-}
-</style>
+<link rel='stylesheet' type='text/css' href='../05-Results/presets-01.css' />
+<link rel='stylesheet' type='text/css' href='../04-Exclusions/presets-01.css' />
+<link rel='stylesheet' type='text/css' href='../03-Regions/presets-01.css' />
+<link rel='stylesheet' type='text/css' href='../01-FlexBox/presets-01.css' />
 <link rel='stylesheet' href='../resources/font.css' type='text/css' />
 <script src='../resources/feature-detect.js'></script>
 <body>
