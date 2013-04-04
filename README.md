@@ -20,10 +20,11 @@ Flow content through the FlexBox and Grid layouts using regions.
 
 Customize the drop-cap for the FlexBox layout, and wrap text around the image inset in the Grid Layout.
 
-##05 Results
+##05 Bonus Round
+
+If there is time, create a content template using Shadow DOM.
+
+##06 Results
 
 The final results for both layout exercises.
 
-##06 Bonus Round
-
-If there is time, create a content template using Shadow DOM.
