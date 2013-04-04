@@ -1,38 +1,68 @@
 <!DOCTYPE html>
-<!--
-Goal: Use a template to create a comment component
-
-SubGoals:
-1. Create a shadow root for the content
-2. Copy the template content into the shadow DOM
--->
+<html>
+<head>
+<link rel='stylesheet' type='text/css' href='../resources/font.css' />
+<style>
+</style>
 <script>
 window.onload = function() {
-/*********
- * WORK HERE
- *********/
-    var template = document.querySelector('template');
-    var shadow = document.querySelector('.bob').webkitCreateShadowRoot();
-    shadow.appendChild(template.content);
-    template.remove();
+    var comments = document.querySelectorAll('.comment'), comment, shadow;
+    var template = document.querySelector('#comment-template');
+    for (var i = 0; i < comments.length; i++) {
+        comment = comments[i];
+        shadow = comment.webkitCreateShadowRoot();
+        shadow.appendChild(template.content.cloneNode(true));
+    }
 }
 </script>
-<style>
-.bob:before {
-    /*border: 2px solid green;
-    content: attr(data-name);*/
-}
-</style>
-<link rel='stylesheet' href='../resources/font.css' type='text/css' />
+</head>
 <body>
-    <div class='bob' data-name='bob'></div>
-    <template>
+    <div class='comment'>
+        <img class='avatar' src='../resources/box.svg' />
+        <span class='name'>Alice</span>
+        <span class='date'>12.02.09</span>
+        <p>This is the rest of the comment content right here</p>
+    </div>
+    <template id='comment-template'>
         <style>
-            *:before {
-                content: attr(data-name);
+            .comment-container > * {
+                float: left;
+                margin-left: 1em;
+            }
+            .user { width: 6em; }
+            .user > * {
+                text-align: center;
+            }
+            .content {
+                width: 20em;
+                border-radius: .5em;
+                padding: 1em;
+                box-sizing: border-box;
+                background-color: #91c46c;
+                color: white;
+            }
+            .content:before {
+                float: left;
+                margin-left: -2em;
+                display: block;
+                border: 1em solid transparent;
+                border-left-width: 0;
+                border-right-color: #91c46c;
+                width: 0;
+                height: 0;
+                content: ' ';
             }
         </style>
-        <content></content>
+        <div class='comment-container'>
+            <div class='user'>
+                <div><content select='.avatar'></content></div>
+                <div><content select='.name'></content></div>
+                <div><content select='.date'></content></div>
+            </div>
+            <div class='content'>
+                <content></content>
+            </div>
+        </div>
     </template>
 </body>
-<html>
+</html>
