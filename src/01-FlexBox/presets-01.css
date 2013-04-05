@@ -1,0 +1,18 @@
+html, body { width: 100%; height: 100%; margin: 0; }
+.flexbox > * {
+    box-sizing: border-box;
+    line-height: 1.2;
+    overflow: hidden;
+    counter-increment: box-num;
+}
+.flexbox > *:before {
+    display: block;
+    width: 100%;
+    height: 2000px;
+    box-sizing: border-box;
+    border: 2px solid white;
+    background-color: #4c70a3;
+    color: white;
+    font-size: 200px;
+    content: counter(box-num);
+}

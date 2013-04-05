@@ -1,0 +1,30 @@
+ /* FlexBox Markup */
+ .flexbox > *:first-child {
+    border: 25px solid transparent;
+ }
+@media screen and (min-width: 700px) {
+    .flexbox {
+        display: -webkit-flex;
+        -webkit-flex-wrap: wrap;
+        height: 100%;
+        max-height: 100%;
+    }
+    .flexbox > * {
+        -webkit-flex-grow: 1;
+        -webkit-flex-shrink: 0;
+        width: 350px;
+        border: 25px solid transparent;
+        height: 100%;
+        overflow: hidden;
+    }
+}
+/* Presentation Markup */
+.content:first-letter {
+    display: block;
+    float: left;
+    background: url('../resources/alice-a.svg') no-repeat;
+    background-size: 100%;
+    width: 240px;
+    height: 280px;
+    font-size: 0;
+}

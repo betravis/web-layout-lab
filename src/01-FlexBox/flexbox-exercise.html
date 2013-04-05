@@ -1,0 +1,46 @@
+---
+layout: default
+title: FlexBox Exercise
+comment: |
+    Goal: Simulate a column layout using FlexBox
+
+    +- - -viewport - - -+
+    |+- - -+- - -+- - -+|
+    || BOX | BOX | BOX ||
+    |+- - -+- - -+- - -+|
+    +- - - - - - - - - -+
+     +- - -+- - -+
+     | BOX | BOX |
+     +- - -+- - -+
+
+    SubGoals:
+    1. Create a FlexBox container with 9 children
+    2. Flex children should be at most as tall as the viewport
+    3. Flex children should have a starting width of 350px (including 25px of padding)
+    4. Flex children should grow to fill extra space
+    5. Flex children should not shrink below 350px
+    6. Make it responsive
+        a. At sizes >= 700px, apply the above formatting
+        b. Otherwise, use a single automatically sized block
+styleIncludes:
+ - ../01-FlexBox/presets-01.css
+ - ../resources/font.css
+scriptIncludes:
+ - ../resources/feature-detect.js
+style: |
+    <style>
+    /*********
+     * WORK HERE
+     *********/
+    .flexbox {
+        
+    }
+    .flexbox > * {
+        
+    }
+    @media screen {
+
+    }
+    </style>
+---
+{% include flexbox-container.html %}

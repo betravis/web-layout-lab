@@ -1,0 +1,4 @@
+/* Shape Markup */
+.content:first-letter {
+    -webkit-shape-outside: polygon(0 0, 60% 0, 80% 60%, 100% 70%, 100% 100%, 0 100%);
+}

@@ -1,0 +1,80 @@
+---
+layout: default
+title: Grid Layout Example
+comment: |
+    An example of grid layout setup on a [2x3] grid
+    +- - - - - - +
+    |   HEADER   |
+    +- - - - - - +
+    |    MAIN    |
+    +- - - +- - -+
+    | LEFT |RIGHT|
+    +- - - +- - -+
+styleIncludes:
+ - ../resources/font.css
+scriptIncludes:
+ - ../resources/feature-detect.js
+style: |
+    <style>
+    /* Grid Setup */
+    .grid {
+        display: -webkit-grid;
+        -webkit-grid-rows: 25% 50% 25%;
+        -webkit-grid-columns: 50% 50%;
+    }
+    .header {
+        /* start/before count columns from the top/left, while
+           end/after count columns from the bottom/right */
+        -webkit-grid-start: 1;
+        -webkit-grid-end: 1;
+        -webkit-grid-before: 1;
+        -webkit-grid-after: 3;
+    }
+    .main {
+        -webkit-grid-start: 1;
+        -webkit-grid-end: 1;
+        -webkit-grid-before: 2;
+        -webkit-grid-after: 2;
+    }
+    .footer-left {
+        -webkit-grid-start: 1;
+        -webkit-grid-end: 2;
+        -webkit-grid-before: 3;
+        -webkit-grid-after: 1;
+    }
+    .footer-right {
+        -webkit-grid-start: 2;
+        -webkit-grid-end: 1;
+        -webkit-grid-before: 3;
+        -webkit-grid-after: 1;
+    }
+
+    /* Presentation Markup */
+    html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+    div {
+        font-size: 1.5em;
+        line-height: 1.2;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+    }
+    .grid > * {
+        border: 2px solid white;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        background-color: #91c46c;
+        color: white;
+    }
+    </style>
+---
+<div class='grid'>
+    <div class='header'>1</div>
+    <div class='main'>This markup creates a grid with columns (50%, 50%) and rows (25%, 50%, 25%). The items are then placed on the grid using the grid-[start/end/before/after] properties.</div>
+    <div class='footer-left'>2</div>
+    <div class='footer-right'>3</div>
+</div>

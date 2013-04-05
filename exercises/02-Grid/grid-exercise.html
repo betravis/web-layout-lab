@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+Goal: Create a two column grid layout with an inset
+
+Layout 1
++ - - - - - - - - +
+| COLUMN | COLUMN |
+|   +- - - - -+   |
+|   |  INSET  |   |
+|   +- - - - -+   |
+| ONE    |    TWO |
++ - - - - - - - - +
+
+Layout 2
++ - - - - +
+| ROW ONE |
++ - - - - +
+|  INSET  |
++ - - - - +
+| ROW TWO |
++ - - - - +
+
+Subgoals:
+1. Create Layout 1
+2. With an inset area spanning
+    a. [25%, 75%] in the x direction
+    b. [33%, 67%] in the y direction
+3. At widths < 600px, switch to Layout 2
+    a. Row 1 [0, 33%] in the y direction
+    b. Inset [33%, 67%] in the y direction
+    c. Row 2 [67%, - ] in the y direction (with auto height)
+-->
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>Grid Layout Exercise</title>
+<link rel='stylesheet' type='text/css' href='../02-Grid/presets-02.css' />
+<link rel='stylesheet' type='text/css' href='../resources/font.css' />
+<script src='../resources/feature-detect.js'></script>
+<style>
+/*********
+ * WORK HERE
+ *********/
+.grid {
+
+}
+.one, .two {
+
+}
+.one {
+
+}
+.two {
+
+}
+.inset {
+
+}
+@media screen {
+
+}
+/* debugging css */
+.grid {
+    background: url('../resources/box.svg') repeat top left;
+    background-size: 25% 33.33%;
+}
+.grid > * {
+    -webkit-opacity: 0.2;
+}
+.inset:before {
+    color: #91c46c;
+    content: '<img>';
+}
+</style>
+</head>
+<body>
+<div class='grid'>
+    <div class='one'></div>
+    <div class='two'></div>
+    <div class='inset'></div>
+</div>
+</body>
+</html>

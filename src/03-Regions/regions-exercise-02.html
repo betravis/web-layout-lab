@@ -1,0 +1,48 @@
+---
+layout: default
+title: Regions and Grid Layout Exercise
+comment: |
+    Goal: Flow the Alice in Wonderland content through areas one and two
+
+    Layout 1
+    + - - - - - - - - +
+    | A      |      C |
+    |   +- - - - -+   |
+    | L |  INSET  | E |
+    |   +- - - - -+   |
+    | I      |        |
+    + - - - - - - - - +
+
+    Layout 2
+    + - - - - +
+    | A  L  I |
+    + - - - - +
+    |  INSET  |
+    + - - - - +
+    | C  E    |
+    + - - - - +
+
+    Subgoals:
+    1. Flow content into a named flow
+    2. Have the grid areas pull from your named flow
+styleIncludes:
+ - ../03-Regions/presets-02.css
+ - ../02-Grid/presets-02.css
+ - ../resources/font.css
+scriptIncludes:
+ - ../resources/feature-detect.js
+style: |
+    <style>
+    /*********
+     * WORK HERE
+     *********/
+     .one, .two {
+
+     }
+     .content {
+
+     }
+    </style>
+---
+{% include grid-container.html %}
+{% include grid-content.html %}

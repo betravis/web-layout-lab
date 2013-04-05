@@ -1,0 +1,54 @@
+---
+layout: default
+title: Web Components Result
+comment: "
+\x20          __________\n
+\x20    __   ( VICTORY! )\n
+\x20   ( ->  /\n
+\x20   / )\ \n
+\x20  <_/_/\n
+\x20   \" \"\n"
+styleIncludes:
+ - ../resources/font.css
+script: |
+    <script>
+    window.onload = function() {
+        var comments = document.querySelectorAll('.comment'), shadow;
+        var template = document.querySelector('#comment-template');
+        for (var i = 0; i < comments.length; i++) {
+            shadow = comments[i].webkitCreateShadowRoot();
+            shadow.appendChild(template.content.cloneNode(true));
+        }
+    }
+    </script>
+---
+<!-- DOM Content -->
+<div class='comment'>
+    <img class='avatar' src='../resources/alice.svg' />
+    <span class='name'>Alice</span>
+    <span class='date'>12.02.09</span>
+    <p>Cheshire Puss, would you tell me, please, which way I ought to walk from here?</p>
+</div>
+<div class='comment'>
+    <img class='avatar' src='../resources/cheshire.svg' />
+    <span class='name'>Alice</span>
+    <span class='date'>12.02.09</span>
+    <p>That depends a good deal on where you want to get to</p>
+</div>
+
+<!-- Shadow DOM Template -->
+<template id='comment-template'>
+    <style>
+        @import '../05-BonusRound/presets.css';
+    </style>
+    <div class='comment-container'>
+        <div class='user'>
+            <div><content select='.avatar'></content></div>
+            <div><content select='.name'></content></div>
+            <div><content select='.date'></content></div>
+        </div>
+        <div class='content'>
+            <content></content>
+        </div>
+    </div>
+</template>

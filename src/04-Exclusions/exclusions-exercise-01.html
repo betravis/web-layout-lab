@@ -1,0 +1,35 @@
+---
+layout: default
+title: Exclusions, Regions, and FlexBox
+comment: |
+    Goal: Wrap content to fit the contours of the 'A'
+
+         ___
+        / _ \  L
+       / / \ \  I
+      /  - -  \  C
+     / /     \ \  E
+    - -       - - 
+
+    SubGoals:
+    1. Generate a shape using the shape tool in resources/shape-utility.html
+    2. Apply the shape to the first letter
+styleIncludes:
+ - ../04-Exclusions/presets-01.css
+ - ../03-Regions/presets-01.css
+ - ../01-FlexBox/presets-01.css
+ - ../resources/font.css
+scriptIncludes:
+ - ../resources/feature-detect.js
+style: |
+    <style>
+    /*********
+     * WORK HERE
+     *********/
+    .content:first-letter {
+        
+    }
+    </style>
+---
+{% include flexbox-container.html %}
+{% include flexbox-content.html %}

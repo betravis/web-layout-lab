@@ -1,0 +1,32 @@
+.comment-container { clear: both; }
+.comment-container > * {
+    float: left;
+    margin-left: 1em;
+}
+.user { width: 6em; }
+.user > * {
+    text-align: center;
+}
+content::-webkit-distributed(img) {
+    width: 6em;
+    height: 6em;
+}
+.content {
+    width: 20em;
+    border-radius: .5em;
+    padding: 1em;
+    box-sizing: border-box;
+    background-color: #91c46c;
+    color: white;
+}
+.content:before {
+    float: left;
+    margin-left: -2em;
+    display: block;
+    border: 1em solid transparent;
+    border-left-width: 0;
+    border-right-color: #91c46c;
+    width: 0;
+    height: 0;
+    content: ' ';
+}

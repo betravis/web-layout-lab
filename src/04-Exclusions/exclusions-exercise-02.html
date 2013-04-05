@@ -1,0 +1,44 @@
+---
+layout: default
+title: Exclusions, Regions, and Grid
+comment: |
+    Goal: Wrap content around the inset using a shape-inside
+
+    Layout 1
+    + - - - - - - - - +
+    | A L I  |  W O N |
+    |   +- - - - -+   |
+    | C |  INSET  | D |
+    |   +- - - - -+   |
+    | E I N  |  E R L |
+    + - - - - - - - - +
+
+    Subgoals:
+    1. Generate shape-insides (you can use resources/shape-utility.html with resources/grid-template.svg)
+    2. Apply shape-insides
+    3. Use media queries to apply them only to Layout 1
+styleIncludes:
+ - ../04-Exclusions/presets-02.css
+ - ../03-Regions/presets-02.css
+ - ../02-Grid/presets-02.css
+ - ../resources/font.css
+scriptIncludes:
+ - ../resources/feature-detect.js
+style: |
+    <style>
+    /*********
+     * WORK HERE
+     *********/
+     .one {
+
+     }
+     .two {
+
+     }
+     @media screen {
+
+     }
+    </style>
+---
+{% include grid-container.html %}
+{% include grid-content.html %}
