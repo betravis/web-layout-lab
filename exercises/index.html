@@ -1,0 +1,99 @@
+<h1 id='layout_on_the_web_whats_new'>Layout on the Web: What&#8217;s New</h1>
+
+<p>Welcome to the MAX web layout lab. We are going to build a a couple different page layouts using the FlexBox and Grid Layout modules, and then experiment with flowing text through them with Regions and Exclusions. Although each exercise is part of a sequence, you can start at any point without completing the previous exercises. If you fall behind, don&#8217;t worry, you can always start fresh on the next exercise (or cheat and view the solutions).</p>
+
+<p>Each folder contains an example of the features that will be used, followed by a series of exercises. You should only need to work in the area marked &#8220;WORK HERE&#8221;.</p>
+
+<p>Getting Started:</p>
+
+<ol>
+<li>
+<p>Open Chrome Canary</p>
+</li>
+
+<li>
+<p>In Chrome Canary, navigate to <code>about://flags</code></p>
+
+<ul>
+<li>Make sure <code>Experimental Web Platform Features</code> is enabled</li>
+
+<li>If you enabled <code>Experimental Web Platform Features</code> above, restart your browser</li>
+</ul>
+</li>
+
+<li>
+<p>Open up Brackets</p>
+</li>
+
+<li>
+<p>In Brackets up the Layout Lab Exercises folder</p>
+</li>
+</ol>
+
+<h2 id='01_flexbox_layout'>01 FlexBox Layout</h2>
+
+<p>Specification (<a href='http://dev.w3.org/csswg/css-flexbox/'>http://dev.w3.org/csswg/css-flexbox/</a>)</p>
+
+<p>Children of a container with <code>display: flex</code> can lay out in any direction, wrap, and flexibly grow or shrink their sizes to fit the available space. Open the example file in Chrome Canary to see two different potential FlexBox layouts.</p>
+
+<h3 id='flexbox_exercise'>FlexBox Exercise</h3>
+
+<p><em>Goal:</em> Simulate a paged multicolumn layout using FlexBox</p>
+
+<ol>
+<li>
+<p>Create a FlexBox container with 9 children Under the <code>.flexbox</code> selector, add</p>
+
+<ul>
+<li><code>display: -webkit-flex</code> to mark this block for Flexible Box layout</li>
+
+<li><code>-webkit-flex-wrap: wrap</code> to wrap children onto the next line if they don&#8217;t fit</li>
+
+<li><code>height: 100%; max-height: 100%</code> to size the FlexBox to the viewport</li>
+</ul>
+</li>
+
+<li>
+<p>Flex children should be at most as tall as the viewport Under the <code>.flexbox &gt; *</code> selector</p>
+</li>
+
+<li>
+<p>Flex children should have a starting width of 350px (including 25px of padding)</p>
+</li>
+
+<li>
+<p>Flex children should grow to fill extra space</p>
+</li>
+
+<li>
+<p>Flex children should not shrikn below 350 px</p>
+</li>
+
+<li>
+<p>Make it responsive</p>
+
+<ul>
+<li>For sizes &gt;= 700px, apply the above formatting</li>
+
+<li>Otherwise, use a single automatically sized block</li>
+</ul>
+</li>
+</ol>
+
+<h2 id='02_grid_layout'>02 Grid Layout</h2>
+
+<p>The Grid Layout Specification (<a href='http://dev.w3.org/csswg/css-grid/'>http://dev.w3.org/csswg/css-grid/</a>)</p>
+
+<h2 id='03_regions'>03 Regions</h2>
+
+<p>The Regions Specification (<a href='http://dev.w3.org/csswg/css-regions/'>http://dev.w3.org/csswg/css-regions/</a>)</p>
+
+<h2 id='04_exclusions'>04 Exclusions</h2>
+
+<p>The Exclusions Specification (<a href='http://dev.w3.org/csswg/css-exclusions/'>http://dev.w3.org/csswg/css-exclusions/</a>)</p>
+
+<h2 id='05_bonus_round'>05 Bonus Round</h2>
+
+<p>The Web Components Specification (<a href='https://dvcs.w3.org/hg/webcomponents/raw-file/tip/explainer/index.html'>https://dvcs.w3.org/hg/webcomponents/raw-file/tip/explainer/index.html</a>)</p>
+
+<h2 id='06_results'>06 Results</h2>
