@@ -13,15 +13,18 @@ comment: |
      | BOX | BOX |
      +- - -+- - -+
 
-    SubGoals:
-    1. Create a FlexBox container with 9 children
-    2. Flex children should be at most as tall as the viewport
-    3. Flex children should have a starting width of 350px (including 25px of padding)
-    4. Flex children should grow to fill extra space
-    5. Flex children should not shrink below 350px
-    6. Make it responsive
-        a. At sizes >= 700px, apply the above formatting
-        b. Otherwise, use a single automatically sized block
+    Description:
+    1. The FlexBox container should have 9 children
+    2. The FlexBox container should fill the viewport
+    3. FlexBox children should be
+        * 350px wide
+        * the viewport's height
+        * and include 25px of padding
+    4. Flex children should
+        * grow to fill extra space
+        * not shrink below 350px
+    5. The above styles apply only at widths >= 700px
+    6. At smaller widths, the blocks should be automatically sized
 styleIncludes:
  - ../01-FlexBox/presets-01.css
  - ../resources/font.css

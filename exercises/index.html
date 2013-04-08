@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>Layout Lab Instructions</title>
+<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic' />
+<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Source+Code+Pro' />
+<style>
+body { font-family: 'Source Sans Pro', sans-serif; }
+code { font-family: 'Source Code Pro', monospace; background-color: #d3d3d3; }
+</style>
+</head>
+<body>
 <h1 id='layout_on_the_web_whats_new'>Layout on the Web: What&#8217;s New</h1>
 
 <p>Welcome to the MAX web layout lab. We are going to build a a couple different page layouts using the FlexBox and Grid Layout modules, and then experiment with flowing text through them with Regions and Exclusions. Although each exercise is part of a sequence, you can start at any point without completing the previous exercises. If you fall behind, don&#8217;t worry, you can always start fresh on the next exercise (or cheat and view the solutions).</p>
@@ -34,15 +48,21 @@
 
 <p>Specification (<a href='http://dev.w3.org/csswg/css-flexbox/'>http://dev.w3.org/csswg/css-flexbox/</a>)</p>
 
-<p>Children of a container with <code>display: flex</code> can lay out in any direction, wrap, and flexibly grow or shrink their sizes to fit the available space. Open the example file in Chrome Canary to see two different potential FlexBox layouts.</p>
+<p>Children of a container with <code>display: flex</code> can lay out in any direction, wrap, and flexibly grow or shrink their sizes to fit the available space.</p>
 
-<h3 id='flexbox_exercise'>FlexBox Exercise</h3>
+<h3 id='flexbox_example'>FlexBox <a href='01-FlexBox/flexbox-example.html'>Example</a></h3>
+
+<p>Open the example file in Chrome Canary to see two different potential FlexBox layouts.</p>
+
+<h3 id='flexbox_exercise'>FlexBox <a href='01-FlexBox/flexbox-exercise.html'>Exercise</a></h3>
 
 <p><em>Goal:</em> Simulate a paged multicolumn layout using FlexBox</p>
 
 <ol>
 <li>
-<p>Create a FlexBox container with 9 children Under the <code>.flexbox</code> selector, add</p>
+<p>Create a FlexBox layout container</p>
+
+<p>Under the <code>.flexbox</code> selector, add</p>
 
 <ul>
 <li><code>display: -webkit-flex</code> to mark this block for Flexible Box layout</li>
@@ -54,46 +74,346 @@
 </li>
 
 <li>
-<p>Flex children should be at most as tall as the viewport Under the <code>.flexbox &gt; *</code> selector</p>
+<p>Set the initial dimensions of the FlexBox children</p>
+
+<p>Under the <code>.flexbox &gt; *</code> selector, add</p>
+
+<ul>
+<li><code>width: 350px</code> (<code>box-sizing: border-box</code> is already set)</li>
+
+<li><code>padding: 25px</code></li>
+
+<li><code>height: 100%</code></li>
+</ul>
 </li>
 
 <li>
-<p>Flex children should have a starting width of 350px (including 25px of padding)</p>
-</li>
+<p>Describe how the FlexBox children grow and shrink</p>
 
-<li>
-<p>Flex children should grow to fill extra space</p>
-</li>
+<ul>
+<li><code>-webkit-flex-grow: 1</code></li>
 
-<li>
-<p>Flex children should not shrikn below 350 px</p>
+<li><code>-webkit-flex-shrink: 0</code></li>
+</ul>
 </li>
 
 <li>
 <p>Make it responsive</p>
 
 <ul>
-<li>For sizes &gt;= 700px, apply the above formatting</li>
+<li>Add <code>and (min-width: 700px)</code> to the media query</li>
 
-<li>Otherwise, use a single automatically sized block</li>
+<li>Move the above styles into the media query</li>
+
+<li>Outside the media query, add <code>.flexbox &gt; *:first-child { padding: 25px; }</code></li>
 </ul>
 </li>
 </ol>
 
 <h2 id='02_grid_layout'>02 Grid Layout</h2>
 
-<p>The Grid Layout Specification (<a href='http://dev.w3.org/csswg/css-grid/'>http://dev.w3.org/csswg/css-grid/</a>)</p>
+<p>Specification (<a href='http://dev.w3.org/csswg/css-grid/'>http://dev.w3.org/csswg/css-grid/</a>)</p>
+
+<p>A container with <code>display: grid</code> creates a grid of fixed or flexibly sized rows and columns. Children can then align and size themselves to the grid.</p>
+
+<h3 id='grid_example'>Grid <a href='02-Grid/grid-example.html'>Example</a></h3>
+
+<p>Open the example file in Chrome Canary to see a simple application-style layout with a header, content area, and two footers.</p>
+
+<h3 id='grid_exercise'>Grid <a href='02-Grid/grid-exercise.html'>Exercise</a></h3>
+
+<p><em>Goal:</em> Create a responsive two column grid layout with an inset</p>
+
+<ol>
+<li>
+<p>Create a Grid layout container</p>
+
+<p>Under <code>.grid</code>, add</p>
+
+<ul>
+<li><code>display: -webkit-grid</code></li>
+
+<li><code>-webkit-grid-columns: 25% 25% 25% 25%</code></li>
+
+<li><code>-webkit-grid-rows: 33% 34% 33%</code></li>
+
+<li><code>width: 100%</code></li>
+
+<li><code>height: 100%</code></li>
+</ul>
+</li>
+
+<li>
+<p>Position the two columns</p>
+
+<p>Under <code>.one, .two</code>, add</p>
+
+<ul>
+<li><code>-webkit-grid-before: 1</code></li>
+
+<li><code>-webkit-grid-after: 1</code></li>
+</ul>
+
+<p>Under <code>.one</code>, add</p>
+
+<ul>
+<li><code>-webkit-grid-start: 1</code></li>
+
+<li><code>-webkit-grid-end: 3</code></li>
+</ul>
+
+<p>Under <code>.two</code>, add</p>
+
+<ul>
+<li><code>-webkit-grid-start: 3</code></li>
+
+<li><code>-webkit-grid-end: 1</code></li>
+</ul>
+</li>
+
+<li>
+<p>Position the inset</p>
+
+<p>Under <code>.inset</code>, add</p>
+
+<ul>
+<li><code>-webkit-grid-before: 2</code></li>
+
+<li><code>-webkit-grid-after: 2</code></li>
+
+<li><code>-webkit-grid-start: 2</code></li>
+
+<li><code>-webkit-grid-end: 2</code></li>
+</ul>
+</li>
+
+<li>
+<p>Add a simplified reduced-width layout</p>
+
+<p>Add <code>and (max-width: 600px)</code> to the media query</p>
+
+<p>Under the media query, add</p>
+
+<p><code>.one</code></p>
+
+<ul>
+<li><code>-webkit-grid-beofre: 1</code></li>
+
+<li><code>-webkit-grid-after: 3</code></li>
+
+<li><code>-webkit-grid-start: 1</code></li>
+
+<li><code>-webkit-grid-end</code></li>
+</ul>
+
+<p><code>.two</code></p>
+
+<ul>
+<li><code>-webkit-grid-before: 3</code></li>
+
+<li><code>-webkit-grid-after: 1</code></li>
+
+<li><code>-webkit-grid-start: 1</code></li>
+
+<li><code>height: auto</code></li>
+</ul>
+
+<p><code>.inset</code></p>
+
+<ul>
+<li><code>-webkit-grid-before: 2</code></li>
+
+<li><code>-webkit-grid-after: 2</code></li>
+
+<li><code>-webkit-grid-start: 1</code></li>
+
+<li><code>-webkit-grid-end: 1</code></li>
+</ul>
+</li>
+
+<li>
+<p>Remove the debugging CSS</p>
+</li>
+</ol>
 
 <h2 id='03_regions'>03 Regions</h2>
 
-<p>The Regions Specification (<a href='http://dev.w3.org/csswg/css-regions/'>http://dev.w3.org/csswg/css-regions/</a>)</p>
+<p>Specification (<a href='http://dev.w3.org/csswg/css-regions/'>http://dev.w3.org/csswg/css-regions/</a>)</p>
+
+<p>CSS Regions allow you to flow content through multiple areas called regions.</p>
+
+<h3 id='regions_example'>Regions <a href='03-Regions/regions-example.html'>Example</a></h3>
+
+<p>Open the example to see how content can be placed into a named flow that regions can then pull from.</p>
+
+<h3 id='regions_exercise'>Regions <a href='03-Regions/regions-exercise-01.html'>Exercise</a></h3>
+
+<p><em>Goal:</em> Flow content through your previously created FlexBox layout</p>
+
+<ol>
+<li>
+<p>Put content into a named flow</p>
+
+<p>Under <code>.content</code>, add</p>
+
+<ul>
+<li><code>-webkit-flow-into: story-flow</code></li>
+</ul>
+</li>
+
+<li>
+<p>Pull content from the above named flow</p>
+
+<p>Under <code>.flexbox &gt; *</code>, add</p>
+
+<ul>
+<li><code>-webkit-flow-from: story-flow</code></li>
+</ul>
+</li>
+</ol>
+
+<h3 id='regions_exercise'>Regions <a href='03-Regions/regions-exercise-02.html'>Exercise</a></h3>
+
+<p><em>Goal:</em> Flow content through your previously created Grid layout</p>
+
+<ol>
+<li>
+<p>Put content into a named flow</p>
+
+<p>Under <code>.content</code>, add</p>
+
+<ul>
+<li><code>-webkit-flow-into: story-flow</code></li>
+</ul>
+</li>
+
+<li>
+<p>Pull content from the above named flow</p>
+
+<p>Under <code>.one, .two</code>, add</p>
+
+<ul>
+<li><code>-webkit-flow-from: story-flow</code></li>
+</ul>
+</li>
+</ol>
 
 <h2 id='04_exclusions'>04 Exclusions</h2>
 
-<p>The Exclusions Specification (<a href='http://dev.w3.org/csswg/css-exclusions/'>http://dev.w3.org/csswg/css-exclusions/</a>)</p>
+<p>Specification (<a href='http://dev.w3.org/csswg/css-exclusions/'>http://dev.w3.org/csswg/css-exclusions/</a>)</p>
+
+<p>CSS Exclusions allow you to customize the shape content flows inside and around.</p>
+
+<h3 id='exclusions_example'>Exclusions <a href='04-Exclusions/exclusions-example.html'>Example</a></h3>
+
+<p>Open the example to see how content can wrap inside and around a circle.</p>
+
+<h3 id='exclusions_exercise_1'>Exclusions <a href='04-Exclusions/exclusions-exercise-01.html'>Exercise 1</a></h3>
+
+<p><em>Goal:</em> Wrap text tightly around the initial &#8216;A&#8217; drop cap</p>
+
+<ol>
+<li>
+<p>Use <a href='resources/shape-utility.html'>resources/shape-utility.html</a> with <code>alice-a.svg</code> to create a shape-outside</p>
+</li>
+
+<li>
+<p>Apply your shape-outside</p>
+
+<p>Under <code>.content:first-letter</code>, set <code>-webkit-shape-outside</code> to</p>
+
+<ul>
+<li>Your shape-outside from step 1, or</li>
+
+<li><code>polygon(0 0, 60% 0, 80% 60%, 100% 70%, 100% 100%, 0 100%)</code></li>
+</ul>
+</li>
+</ol>
+
+<h3 id='exclusions_exercise_2'>Exclusions <a href='04-Exclusions/exclusions-exercise-02.html'>Exercise 2</a></h3>
+
+<p><em>Goal:</em> Wrap text around the image inset</p>
+
+<ol>
+<li>
+<p>Use the shape-utility with <code>grid-template.svg</code> to create two shape-insides</p>
+</li>
+
+<li>
+<p>Apply your shape-insides Under <code>.one</code> set <code>-webkit-shape-inside</code> to</p>
+
+<ul>
+<li>Your result from step 1, or</li>
+
+<li><code>polygon(0 0, 100% 0, 100% 33%, 50% 33%, 50% 67%, 100% 67%, 100% 100%, 0 100%)</code></li>
+</ul>
+
+<p>Under <code>.two</code> set <code>-webkit-shape-inside</code> to</p>
+
+<ul>
+<li>Your result from step 1, or</li>
+
+<li><code>polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 67%, 50% 67%, 50% 33%, 0% 33%)</code></li>
+</ul>
+</li>
+
+<li>
+<p>Apply the shape-insides only on larger screens</p>
+
+<ul>
+<li>Add <code>and(min-width: 600px)</code> to the media query</li>
+
+<li>Move the above css inside the media query</li>
+</ul>
+</li>
+</ol>
 
 <h2 id='05_bonus_round'>05 Bonus Round</h2>
 
 <p>The Web Components Specification (<a href='https://dvcs.w3.org/hg/webcomponents/raw-file/tip/explainer/index.html'>https://dvcs.w3.org/hg/webcomponents/raw-file/tip/explainer/index.html</a>)</p>
 
+<p>The Web Components Specification contains several different methods of factoring out presentational markup, including a new <code>template</code> element, a presentation-only shadow DOM, and custom, reusable components.</p>
+
+<h3 id='bonus_round_example'>Bonus Round <a href='05-BonusRound/components-example.html'>Example</a></h3>
+
+<p>The example demonstrates the use of the shadow DOM to decorate an element without cluttering the regular DOM.</p>
+
+<h3 id='bonus_round_exercise'>Bonus Round <a href='05-BonusRound/components-exercise.html'>Exercise</a></h3>
+
+<p><em>Goal:</em> Create a shadow DOM for each of the <code>.comment</code> elements, and apply the <code>#comment-template</code></p>
+
+<ol>
+<li>
+<p>Collect the <code>.comment</code> and <code>#comment-template</code> elements for use</p>
+
+<ul>
+<li><code>var comments = document.querySelectorAll(&#39;.comment&#39;)</code></li>
+
+<li><code>var template = document.querySelector(&#39;#comment-template&#39;)</code></li>
+</ul>
+</li>
+
+<li>
+<p>For each of the comment elements, create a shadow DOM root node</p>
+
+<ul>
+<li><code>for (var i = 0; i &lt; comments.length; i++) {</code></li>
+
+<li><code>    var shadow = comments[i].webkitCreateShadowRoot()</code></li>
+</ul>
+</li>
+
+<li>
+<p>Append a copy of the template to each shadow DOM root</p>
+
+<ul>
+<li><code>    shadow.appendChild(template.content.cloneNode(true)) }</code></li>
+</ul>
+</li>
+</ol>
+
 <h2 id='06_results'>06 Results</h2>
+
+<p>Check out the results folder to see the solutions for each of the exercises.</p>
+</body>
+</html>
