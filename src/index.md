@@ -10,7 +10,13 @@ style: |
     code { font-family: 'Source Code Pro', monospace; background-color: #d3d3d3; }
     a { text-decoration: none; color: #4c70a3; }
     @media print {
-        a[href] { color: black; content: " [" attr(href) "] "; }
+        a { color: black; }
+        a[href]:after {
+            color: black;
+            font-weight: normal;
+            font-size: .8em;
+            content: " [" attr(href) "] ";
+        }
     }
     @media screen {
         a:before { content: ' [';} a:after { content: '] ';}
@@ -65,7 +71,7 @@ Getting Started:
 
 ## 01 FlexBox Layout
 
-[Specification][flexbox-spec]
+### [Specification][flexbox-spec]
 
 Children of a container with `display: flex` can lay out in any direction, wrap, and flexibly grow or shrink their sizes to fit the available space.
 
@@ -99,7 +105,7 @@ Open the example file in Chrome Canary to see two different potential FlexBox la
 
 ## 02 Grid Layout
 
-[Specification][grid-spec]
+### [Specification][grid-spec]
 
 A container with `display: grid` creates a grid of fixed or flexibly sized rows and columns. Children can then align and size themselves to the grid.
 
@@ -166,7 +172,7 @@ Open the example file in Chrome Canary to see a simple application-style layout 
 
 ## 03 Regions
 
-[Specification][regions-spec]
+### [Specification][regions-spec]
 
 CSS Regions allow you to flow content through multiple areas called regions.
 
@@ -189,7 +195,7 @@ Open the example to see how content can be placed into a named flow that regions
 
     * `-webkit-flow-from: story-flow`
 
-### Regions [Exercise 2][regions-exercise-02]
+### [Regions Exercise 2][regions-exercise-02]
 
 *Goal:* Flow content through your previously created Grid layout
 
@@ -206,7 +212,7 @@ Open the example to see how content can be placed into a named flow that regions
 
 ## 04 Exclusions
 
-[Specification][exclusions-spec]
+### [Specification][exclusions-spec]
 
 CSS Exclusions allow you to customize the shape content flows inside and around.
 
@@ -245,7 +251,7 @@ Open the example to see how content can wrap inside and around a circle.
 
 ## 05 Bonus Round
 
-[Web Components Specification][components-spec]
+### [Web Components Specification][components-spec]
 
 The Web Components Specification contains several different methods of factoring out presentational markup, including a new `template` element, a presentation-only shadow DOM, and custom, reusable components.
 

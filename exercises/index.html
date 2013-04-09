@@ -11,7 +11,13 @@ body { font-family: 'Source Sans Pro', sans-serif; }
 code { font-family: 'Source Code Pro', monospace; background-color: #d3d3d3; }
 a { text-decoration: none; color: #4c70a3; }
 @media print {
-    a[href] { color: black; content: " [" attr(href) "] "; }
+    a { color: black; }
+    a[href]:after {
+        color: black;
+        font-weight: normal;
+        font-size: .8em;
+        content: " [" attr(href) "] ";
+    }
 }
 @media screen {
     a:before { content: ' [';} a:after { content: '] ';}
@@ -53,7 +59,7 @@ a { text-decoration: none; color: #4c70a3; }
 
 <h2 id='01_flexbox_layout'>01 FlexBox Layout</h2>
 
-<p><a href='http://dev.w3.org/csswg/css-flexbox/'>Specification</a></p>
+<h3 id='specification'><a href='http://dev.w3.org/csswg/css-flexbox/'>Specification</a></h3>
 
 <p>Children of a container with <code>display: flex</code> can lay out in any direction, wrap, and flexibly grow or shrink their sizes to fit the available space.</p>
 
@@ -119,7 +125,7 @@ a { text-decoration: none; color: #4c70a3; }
 
 <h2 id='02_grid_layout'>02 Grid Layout</h2>
 
-<p><a href='http://dev.w3.org/csswg/css-grid/'>Specification</a></p>
+<h3 id='specification'><a href='http://dev.w3.org/csswg/css-grid/'>Specification</a></h3>
 
 <p>A container with <code>display: grid</code> creates a grid of fixed or flexibly sized rows and columns. Children can then align and size themselves to the grid.</p>
 
@@ -245,7 +251,7 @@ a { text-decoration: none; color: #4c70a3; }
 
 <h2 id='03_regions'>03 Regions</h2>
 
-<p><a href='http://dev.w3.org/csswg/css-regions/'>Specification</a></p>
+<h3 id='specification'><a href='http://dev.w3.org/csswg/css-regions/'>Specification</a></h3>
 
 <p>CSS Regions allow you to flow content through multiple areas called regions.</p>
 
@@ -279,7 +285,7 @@ a { text-decoration: none; color: #4c70a3; }
 </li>
 </ol>
 
-<h3 id='regions_exercise_2'>Regions <a href='03-Regions/regions-exercise-02.html'>Exercise 2</a></h3>
+<h3 id='regions_exercise_2'><a href='03-Regions/regions-exercise-02.html'>Regions Exercise 2</a></h3>
 
 <p><em>Goal:</em> Flow content through your previously created Grid layout</p>
 
@@ -307,7 +313,7 @@ a { text-decoration: none; color: #4c70a3; }
 
 <h2 id='04_exclusions'>04 Exclusions</h2>
 
-<p><a href='http://dev.w3.org/csswg/css-exclusions/'>Specification</a></p>
+<h3 id='specification'><a href='http://dev.w3.org/csswg/css-exclusions/'>Specification</a></h3>
 
 <p>CSS Exclusions allow you to customize the shape content flows inside and around.</p>
 
@@ -379,7 +385,7 @@ a { text-decoration: none; color: #4c70a3; }
 
 <h2 id='05_bonus_round'>05 Bonus Round</h2>
 
-<p><a href='https://dvcs.w3.org/hg/webcomponents/raw-file/tip/explainer/index.html'>Web Components Specification</a></p>
+<h3 id='web_components_specification'><a href='https://dvcs.w3.org/hg/webcomponents/raw-file/tip/explainer/index.html'>Web Components Specification</a></h3>
 
 <p>The Web Components Specification contains several different methods of factoring out presentational markup, including a new <code>template</code> element, a presentation-only shadow DOM, and custom, reusable components.</p>
 

@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <!--
-An example of grid layout setup on a [2x3] grid
-+- - - - - - +
-|   HEADER   |
-+- - - - - - +
-|    MAIN    |
-+- - - +- - -+
-| LEFT |RIGHT|
-+- - - +- - -+
+An example of grid layout on a 4x4 grid
+ 25% 25% 25% 25%
++- -+- -+- -+- -+
+|   |   |   |   | 25%
++- -+- -+- -+- -+
+|   |   |   |   | 25%
++- -+- -+- -+- -+
+|   |   |   |   | 25%
++- -+- -+- -+- -+
+|   |   |   |   | 25%
++- -+- -+- -+- -+
 -->
 <html lang='en'>
 <head>
 <meta charset='utf-8'>
 <title>Grid Layout Example</title>
 <link rel='stylesheet' type='text/css' href='../resources/font.css' />
+<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Source+Code+Pro' />
 <script src='../resources/feature-detect.js'></script>
 <style>
 /* Grid Setup */
 .grid {
     display: -webkit-grid;
     /* Old Syntax */
-    -webkit-grid-rows: 25% 50% 25%;
-    -webkit-grid-columns: 50% 50%;
+    -webkit-grid-rows: 25% 25% 25% 25%;
+    -webkit-grid-columns: 25% 25% 25% 25%;
     /* New Syntax */
-    -webkit-grid-definition-rows: 25% 50% 25%;
-    -webkit-grid-definition-columns: 50% 50%;
+    -webkit-grid-definition-rows: 25% 25% 25% 25%;
+    -webkit-grid-definition-columns: 25% 25% 25% 25%;
 }
 .header {
     /* start/before count columns from the top/left, while
@@ -32,56 +36,70 @@ An example of grid layout setup on a [2x3] grid
     -webkit-grid-start: 1;
     -webkit-grid-end: 1;
     -webkit-grid-before: 1;
+    -webkit-grid-after: 4;
+}
+.box1 {
+    -webkit-grid-start: 1;
+    -webkit-grid-end: 3;
+    -webkit-grid-before: 2;
     -webkit-grid-after: 3;
 }
-.main {
-    -webkit-grid-start: 1;
-    -webkit-grid-end: 1;
-    -webkit-grid-before: 2;
+.box2 {
+    -webkit-grid-before: 3;
     -webkit-grid-after: 2;
-}
-.footer-left {
-    -webkit-grid-start: 1;
-    -webkit-grid-end: 2;
-    -webkit-grid-before: 3;
-    -webkit-grid-after: 1;
-}
-.footer-right {
-    -webkit-grid-start: 2;
+    -webkit-grid-start: 3;
     -webkit-grid-end: 1;
-    -webkit-grid-before: 3;
-    -webkit-grid-after: 1;
 }
-
 /* Presentation Markup */
 html, body {
     width: 100%;
     height: 100%;
     margin: 0;
+    font-size: 1.2em;
 }
-div {
-    font-size: 1.5em;
-    line-height: 1.2;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
+code {
+    display: block;
+    font-family: 'Source Sans Pro', monospace;
 }
-.grid > * {
-    border: 2px solid white;
-    box-sizing: border-box;
+.box1, .box2 {
     width: 100%;
     height: 100%;
     background-color: #91c46c;
     color: white;
 }
+.grid > * {
+    box-sizing: border-box;
+    padding: 1em;
+    overflow: hidden;
+}
+.grid {
+    background: -webkit-linear-gradient(top, #4c70a3 2px, transparent 2px) repeat,
+        -webkit-linear-gradient(left, #4c70a3 2px, transparent 2px) repeat, #eee;
+    background-size: 25%;
+    width: 100%;
+    height: 100%;
+}
 </style>
 </head>
 <body>
 <div class='grid'>
-    <div class='header'>1</div>
-    <div class='main'>This markup creates a grid with columns (50%, 50%) and rows (25%, 50%, 25%). The items are then placed on the grid using the grid-[start/end/before/after] properties.</div>
-    <div class='footer-left'>2</div>
-    <div class='footer-right'>3</div>
+    <div class='header'>
+        <code>display: grid</code>
+        <code>grid-cols: 25% 25% 25% 25%</code>
+        <code>grid-rows: 25% 25% 25% 25%</code>
+    </div>
+    <div class='box1'>
+        <code>grid-before: 2</code>
+        <code>grid-after: 3</code>
+        <code>grid-start: 1</code>
+        <code>grid-end: 3</code>
+    </div>
+    <div class='box2'>
+        <code>grid-before: 3</code>
+        <code>grid-after: 2</code>
+        <code>grid-start: 3</code>
+        <code>grid-end: 1</code>
+    </div>
 </div>
 </body>
 </html>

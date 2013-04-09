@@ -5,6 +5,7 @@ comment: |
     Wrap content inside and around a circular shape
 styleIncludes:
  - ../resources/font.css
+ - http://fonts.googleapis.com/css?family=Source+Code+Pro
 scriptIncludes:
  - ../resources/feature-detect.js
 style: |
@@ -20,14 +21,17 @@ style: |
         background-color: #4c70a3;
         color: white;
         border-radius: 50%;
-        font-size: 1.8em;
+        font-size: 1.4em;
+        font-family: 'Source Code Pro', monospace;
+        text-align: center;
     }
     </style>
 ---
 <div class='circle'>
-    <p>This markup creates a left float with an inside and outside circular shape.</p>
-
-    <p>It also adds shape-margin and shape-padding to offset the content from the shape's edge.</p>
+    <br/>
+    float: left<br/>
+    shape-outside: circle(50%, 50%, 50%)<br/>
+    shape-inside: outside-shape
 </div>
 
 <p>There was a table set out under a tree in front of the house, and the March Hare and the Hatter were having tea at it: a Dormouse was sitting between them, fast asleep, and the other two were using it as a cushion, resting their elbows on it, and talking over its head. "Very uncomfortable for the Dormouse," thought Alice; "only, as it's asleep, I suppose it doesn't mind."</p>

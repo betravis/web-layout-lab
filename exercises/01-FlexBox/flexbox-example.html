@@ -1,76 +1,104 @@
 <!DOCTYPE html>
 <!--
-An example using row and column wrapping flex boxes
+An overview of the basic FlexBox properties
 -->
 <html lang='en'>
 <head>
 <meta charset='utf-8'>
 <title>FlexBox Example</title>
 <link rel='stylesheet' type='text/css' href='../resources/font.css' />
+<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Source+Code+Pro' />
 <script src='../resources/feature-detect.js'></script>
 <style>
-html, body { margin: 0; width: 100%; height: 100%; }
-/* Flex Markup */
-.flex {
+/* FlexBox Markup */
+.flexbox {
     display: -webkit-flex;
-    -webkit-flex-wrap: wrap;
-    -webkit-align-content: flex-start;
 }
-.column {
-    -webkit-flex-direction: column;
+.flexbox.wrap {
+    -webkit-flex-wrap: wrap;
+}
+.flexbox.flex > *:nth-child(2) {
+    /* shorthand for flex-grow,
+       flex-shrink, flex-basis */
+    -webkit-flex: 1 1 auto;
+}
+.flexbox.flex > *:nth-child(3) {
+    -webkit-flex: 2 2 auto;
+}
+
+/* Presentation Markup */
+html, body {
+    margin: 0;
+    font-size: 1.1em;
 }
 .row {
-    -webkit-flex-direction: row;
+    margin: 2em 0;
+    background-color: #eee;
+    padding: 1em;
 }
-.flex > * {
-    -webkit-flex-grow: 1;
-    -webkit-flex-shrink: 1;
-    width: 200px;
-    height: 200px;
-}
-.flex > *:last-child {
-    -webkit-order: -1;
-}
-/* Appearance Markup */
-.flex {
-    width: 50%;
-    height: 100%;
-    float: left;
-    counter-reset: box-count;
-}
-.flex > * {
-    border: 2px solid white;
+.flexbox > * {
     color: white;
-    box-sizing: border-box;
-    line-height: 200px;
-    font-size: 100px;
-    counter-increment: box-count;
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    min-height: 100px;
+    background-color: #4c70a3;
+    margin: 2px;
 }
-.flex > *:before {
-    content: counter(box-count);
-}
-.column > * { background-color: #91c46c; }
-.row > * { background-color: #4c70a3; }
-.flex > *:last-child {
-    font-size: 1.2em;
-    line-height: 1.2;
+code {
+    display: block;
+    font-family: 'Source Code Pro', monospace;
 }
 </style>
 </head>
 <body>
-<div class='flex column'>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div>This is a column wrapping flex container. Each element is initially sized to 200px x 200px and adjusts to fill the available space in the column direction.</div>
+<div class='row'>
+    <code>display: flex</code>
+    <div class='flexbox'>
+        <div>
+            <code>width: 100px</code>
+            <code>height: 100px</code>
+        </div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 </div>
-<div class='flex row'>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div>This is a row wrapping flex container. Each element is initially sized to 200px x 200px and adjusts to fill the available space in the row direction.</div>
+
+<div class='row'>
+    <code>display: flex</code>
+    <code>flex-wrap: wrap</code>
+    <div class='flexbox wrap'>
+        <div>
+            <code>width: 100px</code>
+            <code>height: 100px</code>
+        </div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+
+<div class='row'>
+    <code>display: flex</code>
+    <div class='flexbox flex'>
+        <div>
+            <code>width: 100px</code>
+            <code>height: 100px</code>
+        </div>
+        <div>
+            <code>flex-grow: 1</code>
+            <code>flex-shrink: 1</code>
+        </div>
+        <div>
+            <code>flex-grow: 2</code>
+            <code>flex-shrink: 2</code>
+        </div>
+        <div></div>
+        <div></div>
+    </div>
 </div>
 </body>
 </html>
