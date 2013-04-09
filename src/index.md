@@ -8,6 +8,13 @@ style: |
     <style>
     body { font-family: 'Source Sans Pro', sans-serif; }
     code { font-family: 'Source Code Pro', monospace; background-color: #d3d3d3; }
+    a { text-decoration: none; color: #4c70a3; }
+    @media print {
+        a[href] { color: black; content: " [" attr(href) "] "; }
+    }
+    @media screen {
+        a:before { content: ' [';} a:after { content: '] ';}
+    }
     </style>
 ---
 [flexbox-spec]: http://dev.w3.org/csswg/css-flexbox/
@@ -32,6 +39,10 @@ style: |
 [components-example]: 05-BonusRound/components-example.html
 [components-exercise]: 05-BonusRound/components-exercise.html
 
+[components-result]: 06-Results/components-exercise.html
+[flexbox-result]: 06-Results/exclusions-exercise-01-result.html
+[grid-result]: 06-Result/exclusions-exercise-02-result.html
+
 [shape-utility]: resources/shape-utility.html
 
 # Layout on the Web: What's New
@@ -54,15 +65,15 @@ Getting Started:
 
 ## 01 FlexBox Layout
 
-Specification ([http://dev.w3.org/csswg/css-flexbox/][flexbox-spec])
+[Specification][flexbox-spec]
 
 Children of a container with `display: flex` can lay out in any direction, wrap, and flexibly grow or shrink their sizes to fit the available space.
 
-### FlexBox [Example][flexbox-example]
+### [FlexBox Example][flexbox-example]
 
 Open the example file in Chrome Canary to see two different potential FlexBox layouts.
 
-### FlexBox [Exercise][flexbox-exercise]
+### [FlexBox Exercise][flexbox-exercise]
 
 *Goal:* Simulate a paged multicolumn layout using FlexBox
 
@@ -88,15 +99,15 @@ Open the example file in Chrome Canary to see two different potential FlexBox la
 
 ## 02 Grid Layout
 
-Specification ([http://dev.w3.org/csswg/css-grid/][grid-spec])
+[Specification][grid-spec]
 
 A container with `display: grid` creates a grid of fixed or flexibly sized rows and columns. Children can then align and size themselves to the grid.
 
-### Grid [Example][grid-example]
+### [Grid Example][grid-example]
 
 Open the example file in Chrome Canary to see a simple application-style layout with a header, content area, and two footers.
 
-### Grid [Exercise][grid-exercise]
+### [Grid Exercise][grid-exercise]
 
 *Goal:* Create a responsive two column grid layout with an inset
 
@@ -138,7 +149,7 @@ Open the example file in Chrome Canary to see a simple application-style layout 
     * `-webkit-grid-beofre: 1`
     * `-webkit-grid-after: 3`
     * `-webkit-grid-start: 1`
-    * `-webkit-grid-end`
+    * `-webkit-grid-end: 1`
 
     `.two`
     * `-webkit-grid-before: 3`
@@ -155,15 +166,15 @@ Open the example file in Chrome Canary to see a simple application-style layout 
 
 ## 03 Regions
 
-Specification ([http://dev.w3.org/csswg/css-regions/][regions-spec])
+[Specification][regions-spec]
 
 CSS Regions allow you to flow content through multiple areas called regions.
 
-### Regions [Example][regions-example]
+### [Regions Example][regions-example]
 
 Open the example to see how content can be placed into a named flow that regions can then pull from.
 
-### Regions [Exercise][regions-exercise-01]
+### [Regions Exercise 1][regions-exercise-01]
 
 *Goal:* Flow content through your previously created FlexBox layout
 
@@ -178,7 +189,7 @@ Open the example to see how content can be placed into a named flow that regions
 
     * `-webkit-flow-from: story-flow`
 
-### Regions [Exercise][regions-exercise-02]
+### Regions [Exercise 2][regions-exercise-02]
 
 *Goal:* Flow content through your previously created Grid layout
 
@@ -195,31 +206,32 @@ Open the example to see how content can be placed into a named flow that regions
 
 ## 04 Exclusions
 
-Specification ([http://dev.w3.org/csswg/css-exclusions/][exclusions-spec])
+[Specification][exclusions-spec]
 
 CSS Exclusions allow you to customize the shape content flows inside and around.
 
-### Exclusions [Example][exclusions-example]
+### [Exclusions Example][exclusions-example]
 
 Open the example to see how content can wrap inside and around a circle.
 
-### Exclusions [Exercise 1][exclusions-exercise-01]
+### [Exclusions Exercise 1][exclusions-exercise-01]
 
 *Goal:* Wrap text tightly around the initial 'A' drop cap
 
-1. Use [resources/shape-utility.html][shape-utility] with `alice-a.svg` to create a shape-outside
+1. Use the [shape utility][shape-utility] with `alice-a.svg` to create a shape-outside
 2. Apply your shape-outside
 
     Under `.content:first-letter`, set `-webkit-shape-outside` to
     * Your shape-outside from step 1, or
     * `polygon(0 0, 60% 0, 80% 60%, 100% 70%, 100% 100%, 0 100%)`
 
-### Exclusions [Exercise 2][exclusions-exercise-02]
+### [Exclusions Exercise 2][exclusions-exercise-02]
 
 *Goal:* Wrap text around the image inset
 
-1. Use the shape-utility with `grid-template.svg` to create two shape-insides
+1. Use the [shape utility][shape-utility] with `grid-template.svg` to create two shape-insides
 2. Apply your shape-insides
+
     Under `.one` set `-webkit-shape-inside` to
     * Your result from step 1, or
     * `polygon(0 0, 100% 0, 100% 33%, 50% 33%, 50% 67%, 100% 67%, 100% 100%, 0 100%)`
@@ -233,15 +245,15 @@ Open the example to see how content can wrap inside and around a circle.
 
 ## 05 Bonus Round
 
-The Web Components Specification ([https://dvcs.w3.org/hg/webcomponents/raw-file/tip/explainer/index.html][components-spec])
+[Web Components Specification][components-spec]
 
 The Web Components Specification contains several different methods of factoring out presentational markup, including a new `template` element, a presentation-only shadow DOM, and custom, reusable components.
 
-### Bonus Round [Example][components-example]
+### [Bonus Round Example][components-example]
 
 The example demonstrates the use of the shadow DOM to decorate an element without cluttering the regular DOM.
 
-### Bonus Round [Exercise][components-exercise]
+### [Bonus Round Exercise][components-exercise]
 
 *Goal:* Create a shadow DOM for each of the `.comment` elements, and apply the `#comment-template`
 
@@ -261,3 +273,9 @@ The example demonstrates the use of the shadow DOM to decorate an element withou
 ## 06 Results
 
 Check out the results folder to see the solutions for each of the exercises.
+
+### [Web Components Result][components-result]
+
+### [FlexBox Template Result][flexbox-result]
+
+### [Grid Template Result][grid-result]

@@ -19,8 +19,12 @@ style: |
     /* Grid Setup */
     .grid {
         display: -webkit-grid;
+        /* Old Syntax */
         -webkit-grid-rows: 25% 50% 25%;
         -webkit-grid-columns: 50% 50%;
+        /* New Syntax */
+        -webkit-grid-definition-rows: 25% 50% 25%;
+        -webkit-grid-definition-columns: 50% 50%;
     }
     .header {
         /* start/before count columns from the top/left, while

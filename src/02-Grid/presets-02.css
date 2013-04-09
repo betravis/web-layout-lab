@@ -4,19 +4,18 @@ html, body { width: 100%; height: 100%; margin: 0;}
     width: 100%;
     height: 100%;
 }
-div > *:before {
-    display: block;
+.placeholder {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
     border: 2px solid white;
     font-size: 200px;
     line-height: 1.2;
-}
-.one, .two { counter-increment: box-counter; }
-.one:before, .two:before {
+    counter-increment: box-counter;
     background-color: #91c46c;
     color: white;
+}
+.placeholder:before {
     content: counter(box-counter);
 }
 .inset {
