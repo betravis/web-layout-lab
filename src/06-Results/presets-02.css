@@ -1,9 +1,4 @@
-/* Shape Markup */
-@media screen and (min-width: 600px) {
-    .one {
-        -webkit-shape-inside: polygon(0 0, 100% 0, 100% 33%, 50% 33%, 50% 67%, 100% 67%, 100% 100%, 0 100%);
-    }
-    .two {
-        -webkit-shape-inside: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 67%, 50% 67%, 50% 33%, 0% 33%);
-    }
-}
+---
+layout: grid
+state: result
+---

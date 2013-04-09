@@ -1,7 +1,4 @@
-/* Regions Markup */
-.one, .two {
-    -webkit-flow-from: story-flow;
-}
-.content {
-    -webkit-flow-into: story-flow;
-}
+---
+layout: grid
+state: exclusions
+---

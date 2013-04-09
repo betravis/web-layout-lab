@@ -47,7 +47,7 @@ style: |
 
 [components-result]: 06-Results/components-exercise.html
 [flexbox-result]: 06-Results/exclusions-exercise-01-result.html
-[grid-result]: 06-Result/exclusions-exercise-02-result.html
+[grid-result]: 06-Results/exclusions-exercise-02-result.html
 
 [shape-utility]: resources/shape-utility.html
 

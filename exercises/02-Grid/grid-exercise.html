@@ -34,7 +34,7 @@ Description:
 <head>
 <meta charset='utf-8'>
 <title>Grid Layout Exercise</title>
-<link rel='stylesheet' type='text/css' href='../02-Grid/presets-02.css' />
+<link rel='stylesheet' type='text/css' href='presets-02.css' />
 <link rel='stylesheet' type='text/css' href='../resources/font.css' />
 <script src='../resources/feature-detect.js'></script>
 <style>
@@ -61,7 +61,8 @@ Description:
 }
 /* debugging css */
 .grid {
-    background: url('../resources/box.svg') repeat top left;
+    background: -webkit-linear-gradient(top, #4c70a3 2px, transparent 2px) repeat,
+        -webkit-linear-gradient(left, #4c70a3 2px, transparent 2px) repeat, #eee;
     background-size: 25% 33.33%;
 }
 .grid > * {

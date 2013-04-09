@@ -1,19 +1,4 @@
-html, body { width: 100%; height: 100%; margin: 0; }
-.flexbox > * {
-    box-sizing: border-box;
-    line-height: 1.2;
-    overflow: hidden;
-    counter-increment: box-num;
-}
-.placeholder {
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    border: 2px solid white;
-    background-color: #4c70a3;
-    color: white;
-    font-size: 200px;
-}
-.placeholder:before {
-    content: counter(box-num);
-}
+---
+layout: flexbox
+state: flexbox
+---

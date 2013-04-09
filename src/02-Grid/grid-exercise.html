@@ -32,7 +32,7 @@ comment: |
         * Inset [33%, 67%] in the y direction
         * Row 2 [67%, - ] in the y direction (with auto height)
 styleIncludes:
- - ../02-Grid/presets-02.css
+ - presets-02.css
  - ../resources/font.css
 scriptIncludes:
  - ../resources/feature-detect.js
@@ -61,7 +61,8 @@ style: |
     }
     /* debugging css */
     .grid {
-        background: url('../resources/box.svg') repeat top left;
+        background: -webkit-linear-gradient(top, #4c70a3 2px, transparent 2px) repeat,
+            -webkit-linear-gradient(left, #4c70a3 2px, transparent 2px) repeat, #eee;
         background-size: 25% 33.33%;
     }
     .grid > * {
