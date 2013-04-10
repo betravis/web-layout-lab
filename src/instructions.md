@@ -154,11 +154,13 @@ Open the example file in Chrome Canary to see a simple application-style layout 
 
     Under the media query, add
 
-    `.one`
-    * `-webkit-grid-beofre: 1`
-    * `-webkit-grid-after: 3`
+    `.one, .two, .inset`
     * `-webkit-grid-start: 1`
     * `-webkit-grid-end: 1`
+
+    `.one`
+    * `-webkit-grid-before: 1`
+    * `-webkit-grid-after: 3`
 
     `.two`
     * `-webkit-grid-before: 3`
@@ -169,8 +171,7 @@ Open the example file in Chrome Canary to see a simple application-style layout 
     `.inset`
     * `-webkit-grid-before: 2`
     * `-webkit-grid-after: 2`
-    * `-webkit-grid-start: 1`
-    * `-webkit-grid-end: 1`
+
 5. Remove the debugging CSS
 
 ## 03 Regions
@@ -279,21 +280,34 @@ Open the example to see how we can apply presentation-only markup via the Shadow
 
 *Goal:* Use the Shadow DOM to apply a regions template to the content
 
-1. Pull the original DOM's content into the Shadow DOM
+1. Add a Shadow DOM root node to your content
 
-    In the `template` html, add
+    In the `window.onload` function, add
+    * `var template = document.querySelector('template')`
+    * `var content = document.querySelector('.content')`
+    * `var shadow = content.webkitCreateShadowRoot()`
+    * `shadow.appendChild(template.content.cloneNode(true))`
+    * `template.remove()`
+
+2. Pull the original DOM's content into the Shadow DOM
+
+    At the end of the `<template>` tag, add
 
     * `<content></content>`
 
-2. Place the content into a named flow. Note that you will have to use the `distributed` pseudo selector
+3. Place the content into a named flow. Note that you will have to use the `distributed` pseudo selector
 
-    In the `template` style, under `content::-webkit-distributed(*)`, add
+    In the template's `<style>` element, add
+
+    `content::-webkit-distributed(*)`
 
     * `-webkit-flow-into: story`
 
-3. Pull content from the named flow into the regions
+4. Pull content from the named flow into the regions
 
-    In the `template` style, under `.one, .two`, add
+    In the template's `<style>` element, add
+
+    `.one, .two`
 
     * `-webkit-flow-from: story`
 

@@ -207,16 +207,20 @@ a { text-decoration: none; color: #4c70a3; }
 
 <p>Under the media query, add</p>
 
-<p><code>.one</code></p>
+<p><code>.one, .two, .inset</code></p>
 
 <ul>
-<li><code>-webkit-grid-beofre: 1</code></li>
-
-<li><code>-webkit-grid-after: 3</code></li>
-
 <li><code>-webkit-grid-start: 1</code></li>
 
 <li><code>-webkit-grid-end: 1</code></li>
+</ul>
+
+<p><code>.one</code></p>
+
+<ul>
+<li><code>-webkit-grid-before: 1</code></li>
+
+<li><code>-webkit-grid-after: 3</code></li>
 </ul>
 
 <p><code>.two</code></p>
@@ -237,10 +241,6 @@ a { text-decoration: none; color: #4c70a3; }
 <li><code>-webkit-grid-before: 2</code></li>
 
 <li><code>-webkit-grid-after: 2</code></li>
-
-<li><code>-webkit-grid-start: 1</code></li>
-
-<li><code>-webkit-grid-end: 1</code></li>
 </ul>
 </li>
 
@@ -421,9 +421,27 @@ a { text-decoration: none; color: #4c70a3; }
 
 <ol>
 <li>
+<p>Add a Shadow DOM root node to your content</p>
+
+<p>In the <code>window.onload</code> function, add</p>
+
+<ul>
+<li><code>var template = document.querySelector(&#39;template&#39;)</code></li>
+
+<li><code>var content = document.querySelector(&#39;.content&#39;)</code></li>
+
+<li><code>var shadow = content.webkitCreateShadowRoot()</code></li>
+
+<li><code>shadow.appendChild(template.content.cloneNode(true))</code></li>
+
+<li><code>template.remove()</code></li>
+</ul>
+</li>
+
+<li>
 <p>Pull the original DOM&#8217;s content into the Shadow DOM</p>
 
-<p>In the <code>template</code> html, add</p>
+<p>At the end of the <code>&lt;template&gt;</code> tag, add</p>
 
 <ul>
 <li><code>&lt;content&gt;&lt;/content&gt;</code></li>
@@ -433,7 +451,9 @@ a { text-decoration: none; color: #4c70a3; }
 <li>
 <p>Place the content into a named flow. Note that you will have to use the <code>distributed</code> pseudo selector</p>
 
-<p>In the <code>template</code> style, under <code>content::-webkit-distributed(*)</code>, add</p>
+<p>In the template&#8217;s <code>&lt;style&gt;</code> element, add</p>
+
+<p><code>content::-webkit-distributed(*)</code></p>
 
 <ul>
 <li><code>-webkit-flow-into: story</code></li>
@@ -443,7 +463,9 @@ a { text-decoration: none; color: #4c70a3; }
 <li>
 <p>Pull content from the named flow into the regions</p>
 
-<p>In the <code>template</code> style, under <code>.one, .two</code>, add</p>
+<p>In the template&#8217;s <code>&lt;style&gt;</code> element, add</p>
+
+<p><code>.one, .two</code></p>
 
 <ul>
 <li><code>-webkit-flow-from: story</code></li>
