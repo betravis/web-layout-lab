@@ -1,6 +1,7 @@
 ---
 ---
-{% if page.state == 'result' %}
+{% assign states = page.state | split: '|' %}{% for state in states %}{% case state %}
+{% when 'exclusions' %}
 /* Shape Markup */
 @media screen and (min-width: 600px) {
     .one {
@@ -10,7 +11,7 @@
         -webkit-shape-inside: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 67%, 50% 67%, 50% 33%, 0% 33%);
     }
 }
-{% endif %}{% if page.state == 'result' or page.state == 'exclusions' %}
+{% when 'regions' %}
 /* Regions Markup */
 .one, .two {
     -webkit-flow-from: story-flow;
@@ -18,7 +19,7 @@
 .content {
     -webkit-flow-into: story-flow;
 }
-{% endif %}{% if page.state == 'result' or page.state == 'exclusions' or page.state == 'regions' %}
+{% when 'template' %}
 /* Grid Markup */
 .grid {
     display: -webkit-grid;
@@ -65,8 +66,9 @@
         -webkit-grid-end: 1;
     }
 }
-{% endif %}
+{% when 'contentSetup' %}
 html, body, .grid { width: 100%; height: 100%; margin: 0;}
+{% when 'templateSetup' %}
 .grid > * {
     box-sizing: border-box;
     width: 100%;
@@ -90,4 +92,5 @@ html, body, .grid { width: 100%; height: 100%; margin: 0;}
     background: white url('../resources/cheshire.svg') no-repeat center;
     background-size: 100%;
 }
+{% endcase %}{% endfor %}
 {{ content }}

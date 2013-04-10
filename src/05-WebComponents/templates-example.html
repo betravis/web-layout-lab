@@ -1,0 +1,52 @@
+---
+layout: default
+title: Web Component Exercise
+comment: |
+    An example of dynamically creating repeating elements using a template
+styleIncludes:
+ - example-presets.css
+ - ../resources/font.css
+script: |
+    <script>
+    var comments = [{
+        user: 'Alice',
+        avatar: '../resources/alice.svg',
+        content: 'Cheshire Puss, would you tell me, please, which way I ought to walk from here?'
+    }, {
+        user: 'Cheshire',
+        avatar: '../resources/cheshire.svg',
+        content: 'That depends a good deal on where you want to get to.'
+    }, {
+        user: 'Alice',
+        avatar: '../resources/alice.svg',
+        content: 'I would like very much to dynamically generate content.'
+    }, {
+        user: 'Cheshire',
+        avatar: '../resources/cheshire.svg',
+        content: 'Might I suggest the <code>&lt;template&gt;</code> element?'
+    }];
+    window.onload = function() {
+        var template = document.querySelector('#comment-template');
+        for (var i = 0; i < comments.length; i++) {
+            /* The children of a template are accessible via template.content */
+            var comment = comments[i],
+                el = template.content.cloneNode(true);
+            el.querySelector('.avatar').setAttribute('src', comment.avatar);
+            el.querySelector('.name').innerHTML = comment.user;
+            el.querySelector('.content').innerHTML = comment.content;
+            document.body.appendChild(el);
+        }
+        template.remove();
+    }
+    </script>
+---
+<!-- template element -->
+<template id='comment-template'>
+    <div class='comment-container'>
+        <div class='user'>
+            <img class='avatar' />
+            <p class='name'></p>
+        </div>
+        <div class='content'></div>
+    </div>
+</template>

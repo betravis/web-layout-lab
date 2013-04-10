@@ -383,46 +383,70 @@ a { text-decoration: none; color: #4c70a3; }
 </li>
 </ol>
 
-<h2 id='05_bonus_round'>05 Bonus Round</h2>
+<h2 id='05_web_components_aka_bonus_round'>05 Web Components (aka Bonus Round)</h2>
 
-<h3 id='web_components_specification'><a href='https://dvcs.w3.org/hg/webcomponents/raw-file/tip/explainer/index.html'>Web Components Specification</a></h3>
+<h3 id='specification'><a href='https://dvcs.w3.org/hg/webcomponents/raw-file/tip/explainer/index.html'>Specification</a></h3>
 
 <p>The Web Components Specification contains several different methods of factoring out presentational markup, including a new <code>template</code> element, a presentation-only shadow DOM, and custom, reusable components.</p>
 
-<h3 id='bonus_round_example'><a href='05-BonusRound/components-example.html'>Bonus Round Example</a></h3>
+<h3 id='templates_example'><a href='05-WebComponents/templates-example.html'>Templates Example</a></h3>
 
-<p>The example demonstrates the use of the shadow DOM to decorate an element without cluttering the regular DOM.</p>
+<p>The example demonstrates the use of the the <code>&lt;template&gt;</code> element to dynamically generate repeating content.</p>
 
-<h3 id='bonus_round_exercise'><a href='05-BonusRound/components-exercise.html'>Bonus Round Exercise</a></h3>
+<h3 id='templates_exercise'><a href='05-WebComponents/templates-exercise.html'>Templates Exercise</a></h3>
 
-<p><em>Goal:</em> Create a shadow DOM for each of the <code>.comment</code> elements, and apply the <code>#comment-template</code></p>
+<p><em>Goal:</em> Repeat the template to add regions until all the content fits</p>
 
 <ol>
 <li>
-<p>Collect the <code>.comment</code> and <code>#comment-template</code> elements for use</p>
+<p>Note the method of getting named flows</p>
+</li>
+
+<li>
+<p>Inside the <code>while</code> loop, add</p>
 
 <ul>
-<li><code>var comments = document.querySelectorAll(&#39;.comment&#39;)</code></li>
+<li><code>    flexbox.appendChild(template.content.cloneNode(true))</code></li>
+</ul>
+</li>
+</ol>
 
-<li><code>var template = document.querySelector(&#39;#comment-template&#39;)</code></li>
+<h3 id='shadow_dom_example'><a href='05-WebComponents/shadow-dom-example.html'>Shadow DOM Example</a></h3>
+
+<p>Open the example to see how we can apply presentation-only markup via the Shadow DOM. While the Shadow DOM content is rendered, it does not affect the original DOM (fire up the Inspector to be sure).</p>
+
+<h3 id='shadow_dom_exercise'><a href='05-WebComponents/shadow-dom-exercise.html'>Shadow DOM Exercise</a></h3>
+
+<p><em>Goal:</em> Use the Shadow DOM to apply a regions template to the content</p>
+
+<ol>
+<li>
+<p>Pull the original DOM&#8217;s content into the Shadow DOM</p>
+
+<p>In the <code>template</code> html, add</p>
+
+<ul>
+<li><code>&lt;content&gt;&lt;/content&gt;</code></li>
 </ul>
 </li>
 
 <li>
-<p>For each of the comment elements, create a shadow DOM root node</p>
+<p>Place the content into a named flow. Note that you will have to use the <code>distributed</code> pseudo selector</p>
+
+<p>In the <code>template</code> style, under <code>content::-webkit-distributed(*)</code>, add</p>
 
 <ul>
-<li><code>for (var i = 0; i &lt; comments.length; i++) {</code></li>
-
-<li><code>    var shadow = comments[i].webkitCreateShadowRoot()</code></li>
+<li><code>-webkit-flow-into: story</code></li>
 </ul>
 </li>
 
 <li>
-<p>Append a copy of the template to each shadow DOM root</p>
+<p>Pull content from the named flow into the regions</p>
+
+<p>In the <code>template</code> style, under <code>.one, .two</code>, add</p>
 
 <ul>
-<li><code>    shadow.appendChild(template.content.cloneNode(true)) }</code></li>
+<li><code>-webkit-flow-from: story</code></li>
 </ul>
 </li>
 </ol>
@@ -431,10 +455,12 @@ a { text-decoration: none; color: #4c70a3; }
 
 <p>Check out the results folder to see the solutions for each of the exercises.</p>
 
-<h3 id='web_components_result'><a href='06-Results/components-exercise.html'>Web Components Result</a></h3>
-
 <h3 id='flexbox_template_result'><a href='06-Results/exclusions-exercise-01-result.html'>FlexBox Template Result</a></h3>
 
 <h3 id='grid_template_result'><a href='06-Results/exclusions-exercise-02-result.html'>Grid Template Result</a></h3>
+
+<h3 id='web_components_template_result'><a href='06-Results/templates-exercise-result.html'>Web Components Template Result</a></h3>
+
+<h3 id='web_components_shadow_dom_result'><a href='06-Results/shadow-dom-exercise-result.html'>Web Components Shadow DOM Result</a></h3>
 </body>
 </html>

@@ -3,14 +3,12 @@
     float: left;
     margin-left: 1em;
 }
-.user { width: 6em; }
-.user > * {
-    text-align: center;
-}
-content::-webkit-distributed(img) {
+.user { width: 6em; text-align: center; }
+.avatar {
     width: 6em;
     height: 6em;
 }
+.name { margin: 0; }
 .content {
     width: 20em;
     border-radius: .5em;

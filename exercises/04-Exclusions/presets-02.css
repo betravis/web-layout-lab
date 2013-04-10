@@ -55,6 +55,7 @@
 }
 
 html, body, .grid { width: 100%; height: 100%; margin: 0;}
+
 .grid > * {
     box-sizing: border-box;
     width: 100%;
@@ -78,3 +79,4 @@ html, body, .grid { width: 100%; height: 100%; margin: 0;}
     background: white url('../resources/cheshire.svg') no-repeat center;
     background-size: 100%;
 }
+

@@ -1,0 +1,56 @@
+---
+layout: default
+title: Web Components Result
+comment: |
+    An example of applying the shadow dom to change how content presents itself
+styleIncludes:
+ - ../resources/font.css
+script: |
+    <script>
+    window.onload = function() {
+        var comments = document.querySelectorAll('.comment'), shadow;
+        var template = document.querySelector('#comment-template');
+        for (var i = 0; i < comments.length; i++) {
+            /* Create a Shadow DOM for this element */
+            shadow = comments[i].webkitCreateShadowRoot();
+            shadow.appendChild(template.content.cloneNode(true));
+            shadow.querySelector('.comment-container').setAttribute('class', 'comment-container ' + comments[i].getAttribute('data-user'));
+        }
+        template.remove();
+    }
+    </script>
+---
+<!-- DOM Content -->
+<div class='comment' data-user='alice'>
+    <p>Cheshire Puss, would you tell me, please, which way I ought to walk from here?</p>
+</div>
+<div class='comment' data-user='cheshire'>
+    <p>That depends a good deal on where you want to get to</p>
+</div>
+<div class='comment' data-user='alice'>
+    <p>I'd like to get to the <code>Shadow DOM</code>.</p>
+</div>
+<div class='comment' data-user='cheshire'>
+    <p>Well the good news is, you're already there.</p>
+</div>
+<!-- Shadow DOM Template -->
+<template id='comment-template'>
+    <style>
+        @import 'example-presets.css';
+        .alice .avatar { content: url('../resources/alice.svg'); }
+        .alice .name:before { content: 'Alice';}
+        .cheshire .avatar { content: url('../resources/cheshire.svg'); }
+        .cheshire .name:before { content: 'Cheshire'; }
+        /* Select the content being proxied into the Shadow DOM */
+        content:-webkit-distributed(*) { color: white; }
+    </style>
+    <div class='comment-container'>
+        <div class='user'>
+            <img class='avatar' />
+            <p class='name'></p>
+        </div>
+        <div class='content'>
+            <content></content>
+        </div>
+    </div>
+</template>

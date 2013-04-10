@@ -1,4 +1,14 @@
 
+/* Shape Markup */
+@media screen and (min-width: 600px) {
+    .one {
+        -webkit-shape-inside: polygon(0 0, 100% 0, 100% 33%, 50% 33%, 50% 67%, 100% 67%, 100% 100%, 0 100%);
+    }
+    .two {
+        -webkit-shape-inside: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 67%, 50% 67%, 50% 33%, 0% 33%);
+    }
+}
+
 /* Grid Markup */
 .grid {
     display: -webkit-grid;
@@ -45,8 +55,6 @@
         -webkit-grid-end: 1;
     }
 }
-
-html, body, .grid { width: 100%; height: 100%; margin: 0;}
 
 .grid > * {
     box-sizing: border-box;

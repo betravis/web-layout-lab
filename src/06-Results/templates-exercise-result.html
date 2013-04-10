@@ -1,0 +1,35 @@
+---
+layout: default
+title: Template Result
+comment: "
+\x20          __________\n
+\x20    __   ( VICTORY! )\n
+\x20   ( ->  /\n
+\x20   / )\ \n
+\x20  <_/_/\n
+\x20   \" \"\n"
+styleIncludes:
+ - templates-presets.css
+ - ../resources/font.css
+scriptIncludes:
+ - ../resources/feature-detect.js
+script: |
+    <script>
+    window.onload = function() {
+        var flexbox = document.querySelector('.flexbox');
+        var template = document.querySelector('template');
+        var flow = document.webkitGetNamedFlows()[0];
+        while (flow.firstEmptyRegionIndex < 0) {
+            flexbox.appendChild(template.content.cloneNode(true));
+        }
+        template.remove();
+    }
+    </script>
+---
+<template>
+    <div></div>
+    <div></div>
+    <div></div>
+</template>
+<div class='flexbox'></div>
+{% include flexbox-content.html %}

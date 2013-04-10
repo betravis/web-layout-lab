@@ -27,6 +27,7 @@
         overflow: hidden;
     }
 }
+
 /* Presentation Markup */
 .content:first-letter {
     display: block;
@@ -39,6 +40,7 @@
 }
 
 html, body { width: 100%; height: 100%; margin: 0; }
+
 .flexbox > * {
     box-sizing: border-box;
     line-height: 1.2;
@@ -57,4 +59,5 @@ html, body { width: 100%; height: 100%; margin: 0; }
 .placeholder:before {
     content: counter(box-num);
 }
+
 

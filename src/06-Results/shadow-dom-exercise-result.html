@@ -1,0 +1,44 @@
+---
+layout: default
+title: Shadow DOM Result
+comment: "
+\x20          __________\n
+\x20    __   ( VICTORY! )\n
+\x20   ( ->  /\n
+\x20   / )\ \n
+\x20  <_/_/\n
+\x20   \" \"\n"
+styleIncludes:
+ - shadow-dom-presets.css
+ - ../resources/font.css
+scriptIncludes:
+ - ../resources/feature-detect.js
+style: |
+    <style>
+    html, body, .content { width: 100%; height: 100%; margin: 0; }
+    </style>
+script: |
+    <script>
+    window.onload = function() {
+        var template = document.querySelector('template');
+        var content = document.querySelector('.content');
+        var shadow = content.webkitCreateShadowRoot();
+        shadow.appendChild(template.content.cloneNode(true));
+        template.remove();
+    }
+    </script>
+---
+<template>
+    <style>
+        @import 'shadow-dom-presets.css';
+        content::-webkit-distributed(*) {
+            -webkit-flow-into: story;
+        }
+        .one, .two {
+            -webkit-flow-from: story;
+        }
+    </style>
+    {% include grid-container.html %}
+    <content></content>
+</template>
+{% include grid-content.html %}

@@ -1,11 +1,12 @@
 ---
 ---
-{% if page.state == 'result' %}
+{% assign states = page.state | split: '|' %}{% for state in states %}{% case state %}
+{% when 'exclusions' %}
 /* Shape Markup */
 .content:first-letter {
     -webkit-shape-outside: polygon(0 0, 60% 0, 80% 60%, 100% 70%, 100% 100%, 0 100%);
 }
-{% endif %}{% if page.state == 'result' or page.state == 'exclusions' %}
+{% when 'regions' %}
 /* Regions Markup */
 .flexbox > * {
     -webkit-flow-from: story-flow;
@@ -13,7 +14,7 @@
 .content {
     -webkit-flow-into: story-flow;
 }
-{% endif %}{% if page.state == 'result' or page.state == 'exclusions' or page.state == 'regions' %}
+{% when 'template' %}
 /* FlexBox Markup */
 .flexbox > *:first-child {
     border: 25px solid transparent;
@@ -34,6 +35,7 @@
         overflow: hidden;
     }
 }
+{% when 'content' %}
 /* Presentation Markup */
 .content:first-letter {
     display: block;
@@ -44,8 +46,9 @@
     height: 280px;
     font-size: 0;
 }
-{% endif %}
+{% when 'contentSetup' %}
 html, body { width: 100%; height: 100%; margin: 0; }
+{% when 'templateSetup' %}
 .flexbox > * {
     box-sizing: border-box;
     line-height: 1.2;
@@ -64,4 +67,5 @@ html, body { width: 100%; height: 100%; margin: 0; }
 .placeholder:before {
     content: counter(box-num);
 }
+{% endcase %}{% endfor %}
 {{ content }}

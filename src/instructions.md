@@ -42,12 +42,15 @@ style: |
 [exclusions-exercise-02]: 04-Exclusions/exclusions-exercise-02.html
 
 [components-spec]: https://dvcs.w3.org/hg/webcomponents/raw-file/tip/explainer/index.html
-[components-example]: 05-BonusRound/components-example.html
-[components-exercise]: 05-BonusRound/components-exercise.html
+[templates-example]: 05-WebComponents/templates-example.html
+[templates-exercise]: 05-WebComponents/templates-exercise.html
+[shadow-dom-example]: 05-WebComponents/shadow-dom-example.html
+[shadow-dom-exercise]: 05-WebComponents/shadow-dom-exercise.html
 
-[components-result]: 06-Results/components-exercise.html
 [flexbox-result]: 06-Results/exclusions-exercise-01-result.html
 [grid-result]: 06-Results/exclusions-exercise-02-result.html
+[templates-result]: 06-Results/templates-exercise-result.html
+[shadow-dom-result]: 06-Results/shadow-dom-exercise-result.html
 
 [shape-utility]: resources/shape-utility.html
 
@@ -249,39 +252,59 @@ Open the example to see how content can wrap inside and around a circle.
     * Add `and(min-width: 600px)` to the media query
     * Move the above css inside the media query
 
-## 05 Bonus Round
+## 05 Web Components (aka Bonus Round)
 
-### [Web Components Specification][components-spec]
+### [Specification][components-spec]
 
 The Web Components Specification contains several different methods of factoring out presentational markup, including a new `template` element, a presentation-only shadow DOM, and custom, reusable components.
 
-### [Bonus Round Example][components-example]
+### [Templates Example][templates-example]
 
-The example demonstrates the use of the shadow DOM to decorate an element without cluttering the regular DOM.
+The example demonstrates the use of the the `<template>` element to dynamically generate repeating content.
 
-### [Bonus Round Exercise][components-exercise]
+### [Templates Exercise][templates-exercise]
 
-*Goal:* Create a shadow DOM for each of the `.comment` elements, and apply the `#comment-template`
+*Goal:* Repeat the template to add regions until all the content fits
 
-1. Collect the `.comment` and `#comment-template` elements for use
-    * `var comments = document.querySelectorAll('.comment')`
-    * `var template = document.querySelector('#comment-template')`
+1. Note the method of getting named flows
+2. Inside the `while` loop, add
 
-2. For each of the comment elements, create a shadow DOM root node
-    * `for (var i = 0; i < comments.length; i++) {`
-    * `    var shadow = comments[i].webkitCreateShadowRoot()`
+    * `    flexbox.appendChild(template.content.cloneNode(true))`
 
-3. Append a copy of the template to each shadow DOM root
+### [Shadow DOM Example][shadow-dom-example]
 
-    * `    shadow.appendChild(template.content.cloneNode(true)) }`
+Open the example to see how we can apply presentation-only markup via the Shadow DOM. While the Shadow DOM content is rendered, it does not affect the original DOM (fire up the Inspector to be sure).
 
+### [Shadow DOM Exercise][shadow-dom-exercise]
+
+*Goal:* Use the Shadow DOM to apply a regions template to the content
+
+1. Pull the original DOM's content into the Shadow DOM
+
+    In the `template` html, add
+
+    * `<content></content>`
+
+2. Place the content into a named flow. Note that you will have to use the `distributed` pseudo selector
+
+    In the `template` style, under `content::-webkit-distributed(*)`, add
+
+    * `-webkit-flow-into: story`
+
+3. Pull content from the named flow into the regions
+
+    In the `template` style, under `.one, .two`, add
+
+    * `-webkit-flow-from: story`
 
 ## 06 Results
 
 Check out the results folder to see the solutions for each of the exercises.
 
-### [Web Components Result][components-result]
-
 ### [FlexBox Template Result][flexbox-result]
 
 ### [Grid Template Result][grid-result]
+
+### [Web Components Template Result][templates-result]
+
+### [Web Components Shadow DOM Result][shadow-dom-result]

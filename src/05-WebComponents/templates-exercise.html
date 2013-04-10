@@ -1,0 +1,34 @@
+---
+layout: default
+title: Templates Exercise
+comment: |
+    Goal: Repeat the template to add regions until all content fits
+styleIncludes:
+ - template-presets.css
+ - ../resources/font.css
+scriptIncludes:
+ - ../resources/feature-detect.js
+script: |
+    <script>
+    window.onload = function() {
+        var flexbox = document.querySelector('.flexbox');
+        var template = document.querySelector('template');
+        /* Get the story flow, and find the index of the
+           first empty region (if any) */
+        var flow = document.webkitGetNamedFlows()[0];
+        while (flow.firstEmptyRegionIndex < 0) {
+        /*********
+         * WORK HERE
+         *********/
+        }
+        template.remove();
+    }
+    </script>
+---
+<template>
+    <div></div>
+    <div></div>
+    <div></div>
+</template>
+<div class='flexbox'></div>
+{% include flexbox-content.html %}
