@@ -8,6 +8,8 @@
 }
 
 /* Grid Markup */
+/* We will be using fallback markup, as the Grid implementation is currently in flux. */
+/*****************************************
 .grid {
     display: -webkit-grid;
     -webkit-grid-columns: 25% 25% 25% 25%;
@@ -16,49 +18,58 @@
     height: 100%;
 }
 .one, .two {
-    -webkit-grid-before: 1;
-    -webkit-grid-after: 1;
+    -webkit-grid-row: 1 / -1;
 }
 .one {
-    -webkit-grid-start: 1;
-    -webkit-grid-end: 3;
+    -webkit-grid-column: 1 / -3;
 }
 .two {
-    -webkit-grid-start: 3;
-    -webkit-grid-end: 1;
+    -webkit-grid-column: 3 / -1;
 }
 .inset {
-    -webkit-grid-before: 2;
-    -webkit-grid-after: 2;
-    -webkit-grid-start: 2;
-    -webkit-grid-end: 2;
+    -webkit-grid-row: 2 / -2;
+    -webkit-grid-column: 2 / -2;
 }
 @media screen and (max-width: 600px) {
+    .one, .two, .inset {
+        -webkit-grid-column: 1 / -1;
+    }
     .one {
-        -webkit-grid-before: 1;
-        -webkit-grid-after: 3;
-        -webkit-grid-start: 1;
-        -webkit-grid-end: 1;
+        -webkit-grid-row: 1;
     }
     .two {
-        -webkit-grid-before: 3;
-        -webkit-grid-after: 1;
-        -webkit-grid-start: 1;
+        -webkit-grid-row: 3;
         height: auto;
     }
     .inset {
-        -webkit-grid-before: 2;
-        -webkit-grid-after: 2;
-        -webkit-grid-start: 1;
-        -webkit-grid-end: 1;
+        -webkit-grid-row: 2;
     }
+}
+ **************************************/
+.grid {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.grid .one, .grid .two, .grid .inset {
+    position: absolute;
+    height: auto;
+}
+.one, .two { top: 0; bottom: 0; }
+.one { left: 0; right: 50%; }
+.two { left: 50%; right: 0; }
+.inset { top: 33%; bottom: 33%; left: 25%; right: 25%; }
+@media screen and (max-width: 600px) {
+    .one, .two, .inset { left: 0; right: 0; }
+    .one { top: 0; bottom: 67%; }
+    .two { top: 67%; bottom: 0; }
+    .inset { top: 33%; bottom: 33%; }
 }
 
 html, body, .grid { width: 100%; height: 100%; margin: 0;}
 
 .grid > * {
     box-sizing: border-box;
-    width: 100%;
     height: 100%;
     counter-increment: box-counter;
 }

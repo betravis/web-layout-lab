@@ -110,7 +110,7 @@ Open the example file in Chrome Canary to see two different potential FlexBox la
 
 ### [Specification][grid-spec]
 
-A container with `display: grid` creates a grid of fixed or flexibly sized rows and columns. Children can then align and size themselves to the grid.
+A container with `display: grid` creates a grid of fixed or flexibly sized rows and columns. Children can then align and size themselves to the grid. The specification and implementations are still both in flux.
 
 ### [Grid Example][grid-example]
 
