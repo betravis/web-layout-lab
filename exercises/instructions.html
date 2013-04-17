@@ -65,7 +65,7 @@ a { text-decoration: none; color: #4c70a3; }
 
 <h3 id='flexbox_example'><a href='01-FlexBox/flexbox-example.html'>FlexBox Example</a></h3>
 
-<p>Open the example file in Chrome Canary to see two different potential FlexBox layouts.</p>
+<p>Open the example file to see how some of the basic FlexBox properties work.</p>
 
 <h3 id='flexbox_exercise'><a href='01-FlexBox/flexbox-exercise.html'>FlexBox Exercise</a></h3>
 
@@ -131,7 +131,7 @@ a { text-decoration: none; color: #4c70a3; }
 
 <h3 id='grid_example'><a href='02-Grid/grid-example.html'>Grid Example</a></h3>
 
-<p>Open the example file in Chrome Canary to see a simple application-style layout with a header, content area, and two footers.</p>
+<p>Open the example file to view a basic grid setup with several positioned children.</p>
 
 <h3 id='grid_exercise'><a href='02-Grid/grid-exercise.html'>Grid Exercise</a></h3>
 
@@ -162,25 +162,19 @@ a { text-decoration: none; color: #4c70a3; }
 <p>Under <code>.one, .two</code>, add</p>
 
 <ul>
-<li><code>-webkit-grid-before: 1</code></li>
-
-<li><code>-webkit-grid-after: 1</code></li>
+<li><code>-webkit-grid-row: 1 / -1</code></li>
 </ul>
 
 <p>Under <code>.one</code>, add</p>
 
 <ul>
-<li><code>-webkit-grid-start: 1</code></li>
-
-<li><code>-webkit-grid-end: 3</code></li>
+<li><code>-webkit-grid-column: 1 / -3</code></li>
 </ul>
 
 <p>Under <code>.two</code>, add</p>
 
 <ul>
-<li><code>-webkit-grid-start: 3</code></li>
-
-<li><code>-webkit-grid-end: 1</code></li>
+<li><code>-webkit-grid-column: 3 / -1</code></li>
 </ul>
 </li>
 
@@ -190,13 +184,9 @@ a { text-decoration: none; color: #4c70a3; }
 <p>Under <code>.inset</code>, add</p>
 
 <ul>
-<li><code>-webkit-grid-before: 2</code></li>
+<li><code>-webkit-grid-row: 2 / -2</code></li>
 
-<li><code>-webkit-grid-after: 2</code></li>
-
-<li><code>-webkit-grid-start: 2</code></li>
-
-<li><code>-webkit-grid-end: 2</code></li>
+<li><code>-webkit-grid-column: 2 / -2</code></li>
 </ul>
 </li>
 
@@ -210,27 +200,19 @@ a { text-decoration: none; color: #4c70a3; }
 <p><code>.one, .two, .inset</code></p>
 
 <ul>
-<li><code>-webkit-grid-start: 1</code></li>
-
-<li><code>-webkit-grid-end: 1</code></li>
+<li><code>-webkit-grid-column: 1 / -1</code></li>
 </ul>
 
 <p><code>.one</code></p>
 
 <ul>
-<li><code>-webkit-grid-before: 1</code></li>
-
-<li><code>-webkit-grid-after: 3</code></li>
+<li><code>-webkit-grid-row: 1</code></li>
 </ul>
 
 <p><code>.two</code></p>
 
 <ul>
-<li><code>-webkit-grid-before: 3</code></li>
-
-<li><code>-webkit-grid-after: 1</code></li>
-
-<li><code>-webkit-grid-start: 1</code></li>
+<li><code>-webkit-grid-row: 3</code></li>
 
 <li><code>height: auto</code></li>
 </ul>
@@ -238,9 +220,7 @@ a { text-decoration: none; color: #4c70a3; }
 <p><code>.inset</code></p>
 
 <ul>
-<li><code>-webkit-grid-before: 2</code></li>
-
-<li><code>-webkit-grid-after: 2</code></li>
+<li><code>-webkit-grid-row: 2</code></li>
 </ul>
 </li>
 

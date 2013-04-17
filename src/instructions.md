@@ -80,7 +80,7 @@ Children of a container with `display: flex` can lay out in any direction, wrap,
 
 ### [FlexBox Example][flexbox-example]
 
-Open the example file in Chrome Canary to see two different potential FlexBox layouts.
+Open the example file to see how some of the basic FlexBox properties work.
 
 ### [FlexBox Exercise][flexbox-exercise]
 
@@ -114,7 +114,7 @@ A container with `display: grid` creates a grid of fixed or flexibly sized rows 
 
 ### [Grid Example][grid-example]
 
-Open the example file in Chrome Canary to see a simple application-style layout with a header, content area, and two footers.
+Open the example file to view a basic grid setup with several positioned children.
 
 ### [Grid Exercise][grid-exercise]
 
@@ -131,23 +131,23 @@ Open the example file in Chrome Canary to see a simple application-style layout 
 2. Position the two columns
 
     Under `.one, .two`, add
-    * `-webkit-grid-before: 1`
-    * `-webkit-grid-after: 1`
+
+    * `-webkit-grid-row: 1 / -1`
 
     Under `.one`, add
-    * `-webkit-grid-start: 1`
-    * `-webkit-grid-end: 3`
+
+    * `-webkit-grid-column: 1 / -3`
 
     Under `.two`, add
-    * `-webkit-grid-start: 3`
-    * `-webkit-grid-end: 1`
+
+    * `-webkit-grid-column: 3 / -1`
+
 3. Position the inset
 
     Under `.inset`, add
-    * `-webkit-grid-before: 2`
-    * `-webkit-grid-after: 2`
-    * `-webkit-grid-start: 2`
-    * `-webkit-grid-end: 2`
+    * `-webkit-grid-row: 2 / -2`
+    * `-webkit-grid-column: 2 / -2`
+
 4. Add a simplified reduced-width layout
 
     Add `and (max-width: 600px)` to the media query
@@ -155,22 +155,20 @@ Open the example file in Chrome Canary to see a simple application-style layout 
     Under the media query, add
 
     `.one, .two, .inset`
-    * `-webkit-grid-start: 1`
-    * `-webkit-grid-end: 1`
+
+    * `-webkit-grid-column: 1 / -1`
 
     `.one`
-    * `-webkit-grid-before: 1`
-    * `-webkit-grid-after: 3`
+
+    * `-webkit-grid-row: 1`
 
     `.two`
-    * `-webkit-grid-before: 3`
-    * `-webkit-grid-after: 1`
-    * `-webkit-grid-start: 1`
+    * `-webkit-grid-row: 3`
     * `height: auto`
 
     `.inset`
-    * `-webkit-grid-before: 2`
-    * `-webkit-grid-after: 2`
+
+    * `-webkit-grid-row: 2`
 
 5. Remove the debugging CSS
 

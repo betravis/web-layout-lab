@@ -31,24 +31,22 @@ style: |
         -webkit-grid-definition-columns: 25% 25% 25% 25%;
     }
     .header {
-        /* start/before count columns from the top/left, while
-           end/after count columns from the bottom/right */
-        -webkit-grid-start: 1;
-        -webkit-grid-end: 1;
-        -webkit-grid-before: 1;
-        -webkit-grid-after: 4;
+        /* There are two positioning shorthands
+           grid-column: [grid-start] / [grid-end];
+           grid-row: [grid-before] / [grid-after];
+           The default end / after values are span 1
+           Positive values count from the top / left line
+           Negative values from the bottom / right */
+        -webkit-grid-column: 1 / -1;
+        -webkit-grid-row: 1;
     }
     .box1 {
-        -webkit-grid-start: 1;
-        -webkit-grid-end: 3;
-        -webkit-grid-before: 2;
-        -webkit-grid-after: 3;
+        -webkit-grid-column: 1 / -3;
+        -webkit-grid-row: 2;
     }
     .box2 {
-        -webkit-grid-before: 3;
-        -webkit-grid-after: 2;
-        -webkit-grid-start: 3;
-        -webkit-grid-end: 1;
+        -webkit-grid-column: 3 / -1;
+        -webkit-grid-row: 3;
     }
     /* Presentation Markup */
     html, body {
@@ -84,19 +82,15 @@ style: |
 <div class='grid'>
     <div class='header'>
         <code>display: grid</code>
-        <code>grid-cols: 25% 25% 25% 25%</code>
-        <code>grid-rows: 25% 25% 25% 25%</code>
+        <code>grid-[definition-]columns: 25% 25% 25% 25%</code>
+        <code>grid-[definition-]rows: 25% 25% 25% 25%</code>
     </div>
     <div class='box1'>
-        <code>grid-before: 2</code>
-        <code>grid-after: 3</code>
-        <code>grid-start: 1</code>
-        <code>grid-end: 3</code>
+        <code>grid-column: 1 / -3</code>
+        <code>grid-row: 2</code>
     </div>
     <div class='box2'>
-        <code>grid-before: 3</code>
-        <code>grid-after: 2</code>
-        <code>grid-start: 3</code>
-        <code>grid-end: 1</code>
+        <code>grid-column: 3 / -1</code>
+        <code>grid-row: 3</code>
     </div>
 </div>
