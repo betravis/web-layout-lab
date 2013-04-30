@@ -226,12 +226,12 @@ Open the example to see how content can wrap inside and around a circle.
 
 *Goal:* Wrap text tightly around the initial 'A' drop cap
 
-1. Use the [shape utility][shape-utility] with `alice-a.svg` to create a shape-outside
+1. Use the [shape utility][shape-utility] with `dropcap-a.svg` to create a shape-outside
 2. Apply your shape-outside
 
     Under `.content:first-letter`, set `-webkit-shape-outside` to
     * Your shape-outside from step 1, or
-    * `polygon(0 0, 60% 0, 80% 60%, 100% 70%, 100% 100%, 0 100%)`
+    * `polygon(0 0, 0 100%, 100% 100%, 100% 95%, 85% 85%, 55% 0)`
 
 ### [Exclusions Exercise 2][exclusions-exercise-02]
 

@@ -1,7 +1,7 @@
 
 /* Shape Markup */
 .content:first-letter {
-    -webkit-shape-outside: polygon(0 0, 60% 0, 80% 60%, 100% 70%, 100% 100%, 0 100%);
+    -webkit-shape-outside: polygon(0 0, 0 100%, 100% 100%, 100% 95%, 85% 85%, 55% 0);
 }
 
 /* Regions Markup */
@@ -37,10 +37,10 @@
 .content:first-letter {
     display: block;
     float: left;
-    background: url('../resources/alice-a.svg') no-repeat;
+    background: url('../resources/dropcap-a.svg') no-repeat;
     background-size: 100%;
     width: 240px;
-    height: 280px;
+    height: 240px;
     font-size: 0;
 }
 
